@@ -1,3 +1,4 @@
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
@@ -34,3 +35,13 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+
+*.jpg
+*.flv
+*.mpg
+*.png
+*.gif
+*.log
+protected/runtime/
+/assets/
+protected/extensions/booster
