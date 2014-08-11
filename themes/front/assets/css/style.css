@@ -1,4 +1,7 @@
 /******** Social Icon *******/
+*{
+    box-sizing: content-box !important;
+}
  .social { float:right; margin:0; text-align:right; padding:0px 0 0 0;}
 .social a { display:inline-block; margin:0px 0 0px 5px; border-radius:50%;}
 .social a img{border-radius:50%; -webkit-transition: all 0.3s ease-in-out; -moz-transition: all 0.3s ease-in-out; -o-transition: all 0.3s ease-in-out; -ms-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out;}
@@ -289,4 +292,12 @@ position: absolute;
   background: linear-gradient(to bottom,  #f6f6f6 0%,#ececec 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6f6f6', endColorstr='#ececec',GradientType=0 ); /* IE6-8 */
 
+}
+.judul{
+    margin-top: 20px;
+    margin-left: 12px;
+    font-size: 24px;
+    display: block;
+    color: #666666;
+    border-bottom: 1px solid #999;
 }

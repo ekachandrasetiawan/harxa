@@ -2,136 +2,28 @@
         <div class="container">
           <div class="row">
             <div class="span12">
-            
-              <ul class="rr slider" id="main-slider">
-                <li class="slide-1 current">
-                  <div class="slide">
-                    <figure>
-                      <img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/ph-home-banner-1.png" alt=""/>
-                    </figure>
-                    <div class="content-wrapper">
-                      <div class="content">
-                        <h1>HARXA FASHION STYLELIST</h1>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at nunc a magna tincidunt placerat. In hac habitasse platea dictumst. Donec in tellus libero. Lorem ipsum dolor sit amet, consectetur adipis.
-                        </p>
-                         <a href="3-product-grid.html" class="btn"><span class="gradient">Show now</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="slide-2">
-                  <div class="slide">
-                    <figure>
-                        <a rel="#voverlay"   href="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>engine/swf/player.swf?url=<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>data/video/time.FLV&volume=100"><img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/ph-home-banner-2.png" alt=""/></a>
-                    </figure>
-                    <div class="content-wrapper">
-                      <div class="content">
-                        <h1>back to office men style</h1>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at nunc a magna tincidunt placerat. In hac habitasse platea dictumst. Donec in tellus libero. Lorem ipsum dolor sit amet, consectetur adipis.
-                        </p>
-                        <a href="3-product-grid.html" class="btn"><span class="gradient">Show now</span></a>
-                      </div>
-                    </div>                    
-                  </div>
-                </li>
-                <li class="slide-3">
-                  <div class="slide">
-                    <figure>
-                      <img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/ph-home-banner-1.png" alt=""/>
-                    </figure>
-                    <div class="content-wrapper">
-                      <div class="content">
-                        <h1>SHOES FOR MEN 2012</h1>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at nunc a magna tincidunt placerat. In hac habitasse platea dictumst. Donec in tellus libero. Lorem ipsum dolor sit amet, consectetur adipis.
-                        </p>
-                        <a href="3-product-grid.html" class="btn"><span class="gradient">Show now</span></a>
-                      </div>
-                    </div>
-                  </div>
-                </li>
-                <li class="slide-4">
-                  <div class="slide">
-                    <figure>
-                      <img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/ph-home-banner-2.png" alt=""/>
-                    </figure>
-                    <div class="content-wrapper">
-                      <div class="content">
-                        <h1>back to office men style</h1>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque at nunc a magna tincidunt placerat. In hac habitasse platea dictumst. Donec in tellus libero. Lorem ipsum dolor sit amet, consectetur adipis.
-                        </p>
-                        <a href="3-product-grid.html" class="btn"><span class="gradient">Show now</span></a>
-                      </div>
-                    </div>                    
-                  </div>
-                </li>
-              </ul>
-              
+             <ul class="rslides" id="slider">
+                  <li><img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/ph-home-banner-1.png"/></li>
+                   <li><img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/trunk.jpg"/></li>
+                   <li><img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/ph-home-banner-1.png"/></li>
+                   <li><img src="<?php echo Yii::app()->theme->baseUrl.'/assets/'; ?>img/ph/trunk.jpg"/></li>
+             </ul>
             </div>
           </div>
         </div>
-        <?php
-        Yii::app()->clientScript->registerScript('sliderTime','
-          
-        ');
-        ?>
-        <script type="text/javascript">
-        function nextSlideShow(){
-          console.log('11111');
-        }
-        jQuery(function(){
-          var cur = 0;
-
-          setTimeout('nextSlideShow()',1000);
-        });
-        </script>
-        <div class="slideshow-bottom">
-          <div class="menu-gradient gradient">Gradient</div>
-          <div class="menu-wrapper">
-            <div class="container">
-              <div class="row-fluid">
-                <div class="span12">
-                  <ul class="rr slider-menu" id="main-slider-menu">
-                    <li class="span3 alpha25 current">
-                      <div class="triangle ir">Triangle</div>
-                      <div class="button" id="open-slide-1">
-                        <span class="splitter">Splitter</span>
-                        HARXA FASHION STYLELIST
-                      </div>
-                    </li>
-                    <li class="span3 alpha25">                    
-                      <div class="triangle ir">Triangle</div>
-                      <div class="button" id="open-slide-2">
-                        <span class="splitter">Splitter</span>
-                        INTRODUCTIONS
-                      </div>
-                    </li>
-                    <li class="span3 alpha25">
-                      <div class="triangle ir">Triangle</div>
-                      <div class="button" id="open-slide-3">
-                        <span class="splitter">Splitter</span>
-                        TRUNK SHOW
-                      </div>
-                    </li>
-                    <li class="span3 alpha25">
-                      <div class="triangle ir">Triangle</div>
-                      <div class="button" id="open-slide-4">
-                        <span class="splitter">Splitter</span>
-                        EVENT
-                        <span class="splitter secondary">Splitter</span>
-                      </div>
-                    </li>
-                  </ul>
-                
-                </div>
-              </div>
-            </div>
-          </div>   
-        </div>
         
+      </div>
+      <div class="container">
+          <div class="row">
+            <div class="judul">
+                WELCOME TO OUR ONLINE STORE
+            </div>
+            <p class="description" style="margin-left: 10px; line-height: 25px;">
+                Lorem ipsum dolor sit amet conse ctetur addpisincing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliwua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                Lorem ipsum dolor sit amet conse ctetur addpisincing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliwua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+                Lorem ipsum dolor sit amet conse ctetur addpisincing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliwua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
+            </p>
+          </div>
       </div>
       <div role="main" class="homepage container">
         <div class="row">

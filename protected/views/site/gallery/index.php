@@ -20,14 +20,17 @@
     <h2>Gallery</h2>
         <ul class="row-fluid clearfix rr grid-display">
         
-            <?php for($i=1; $i<=9; $i++){ ?>
+            <?php 
+            //for($i=1; $i<=9; $i++){
+            foreach($models as $model):
+            ?>
                 <li class="span4 alpha33 desat">
-                <a data-gal="prettyPhoto[prettyPhoto]" href="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>img/ph/ph-home-big-2.png" class="lightbox-image">
-                    <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>img/ph/ph-home-big-2.png" class="desat-ie" alt=""/>
+                <a data-gal="prettyPhoto[prettyPhoto]" href="<?php echo yii::app()->baseUrl.'/images/gallery/'.$model->mainCover->file_name ?>" class="lightbox-image">
+                    <img src="<?php echo yii::app()->baseUrl.'/images/gallery/'.$model->mainCover->file_name ?>" class="desat-ie" alt=""/>
                   </a>
                   <div class="judulalbum">Beef Spices Blend</div>
                 </li>
-            <?php } ?>
+            <?php endforeach; ?>
         </ul>
     </div>
 </div>

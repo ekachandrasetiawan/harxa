@@ -238,19 +238,21 @@ a.logo {
 a.logo, 
 a.logo:visited, 
 a.logo h1 {
-  font-size: 0.938em;
+  font-size: 18px;
   color: #555;
-  font-family: 'PT Serif', serif;
+  font-family: 'Arial';
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
   margin: 0;
+letter-spacing:5px
 }
 a.logo .icon {
   display: inline-block;
-  background: url("../img/logo2.png") no-repeat left top;
-  width: 100px;
-  height: 96px;
+  margin-top: -40px;
+  background: url("../img/logo.png") no-repeat left top;
+  width: 120px;
+  height: 120px;
 }
 
 /* collections slider */
@@ -434,13 +436,15 @@ font-weight: bold;
 /* main menu */
 
 .main-menu-wrapper {
-  margin: 26px 0 30px;
+  margin: 26px 0 15px;
 }
 .main-menu {
   font-size: 15.5px;
   text-transform: uppercase;
   line-height: 0.938em;
   margin-top: 9px !important;
+  margin-left: 10px;
+   list-style: none;
 }
 .main-menu li {
   float: left;
@@ -583,8 +587,8 @@ font-weight: bold;
 }
 .main-slideshow figure {
   position: absolute;
-  top: 40px;
-  left: 10px;
+  top: 0px;
+  left: 0px;
   z-index: 1;
 }
 .main-slideshow .content-wrapper {
@@ -958,7 +962,7 @@ div[role="main"] {
   margin-top: 30px;
 }
 div[role="main"].homepage {
-  margin-top: 70px;
+  margin-top: 0px;
 }
 
 .homepage .main-heading {
@@ -1416,7 +1420,7 @@ font-weight: bold;
   margin-top: 0;
 }
 .list-display .info {
-  padding: 0 18px 10px 20px;
+  /*padding: 0 18px 10px 20px;
   
   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */

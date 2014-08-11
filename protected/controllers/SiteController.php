@@ -137,4 +137,17 @@ class SiteController extends Controller
 		$lastVisit->lastvisit = time();
 		$lastVisit->save();
 	}
+    
+    
+    
+    public function actionGallery(){
+        $models = Gallery::model()->findAll();
+        $this->render('gallery/index',array('models'=>$models));
+    }
+    
+    public function actionProduct()
+    {
+        $models=Product::model()->findAll();
+        $this->render('product/index',array('models'=>$models));
+    }
 }
