@@ -49,7 +49,7 @@
               <span class="badge corner-badge hot ir hidden">Hot</span>
               <a href="<?php echo Yii::app()->createUrl('site/',array('view'=>'productdetail','id'=>$model->id)); ?>">
                 
-                <img src="<?php echo yii::app()->baseUrl.'/images/product/'.$model->product_id->mainCover->file_name ?>" class="desat-ie" alt=""/>
+                <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$model->mainCover->file_name ?>" class="desat-ie" alt=""/>
               </a>
             <span class="status stylestatus">
                 <table class="simple-table">

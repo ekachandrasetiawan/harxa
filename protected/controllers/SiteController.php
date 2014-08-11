@@ -29,7 +29,9 @@ class SiteController extends Controller
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+        $models = Pages::model()->findByPk('1');
+        $this->render('index',array('models'=>$models));
+		//$this->render('index');
 	}
 
 	/**
@@ -138,7 +140,23 @@ class SiteController extends Controller
 		$lastVisit->save();
 	}
     
+    public function actionProfile()
+    {
+     $models = Pages::model()->findByPk('2');
+     $this->render('profile/index',array('models'=>$models));   
+    }
     
+    public function actionGalleryView($id)
+    {
+     $models = GalleryDetail::model()->findAllByAttributes(array('gallery_id'=>$id));
+     $this->render('gallery/galleryView',array('models'=>$models));   
+    }
+    
+    public function actionTrunk()
+    {
+       $models = Pages::model()->findByPk('3');
+       $this->render('trunk/index',array('models'=>$models));           
+    }
     
     public function actionGallery(){
         $models = Gallery::model()->findAll();

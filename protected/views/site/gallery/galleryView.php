@@ -11,6 +11,10 @@
         <span class="splitter">/</span>
         <a href="#">Gallery Harxa</a>
       </li>
+      <li>
+        <span class="splitter">/</span>
+        <a href="#">Detail Gallery</a>
+      </li>
     </ul>
   </div>
 </div>
@@ -25,8 +29,8 @@
             foreach($models as $model):
             ?>
                 <li class="span4 alpha33 desat">
-                <a href="<?php echo $this->createUrl('galleryView',array('id'=>$model->id)); ?>" class="lightbox-image">
-                    <img src="<?php echo yii::app()->baseUrl.'/images/gallery/'.$model->mainCover->file_name ?>" class="desat-ie" alt=""/>
+                <a data-gal="prettyPhoto[prettyPhoto]" href="<?php echo yii::app()->baseUrl.'/images/gallery/'.$model->file_name ?>" class="lightbox-image">
+                    <img src="<?php echo yii::app()->baseUrl.'/images/gallery/'.$model->file_name ?>" class="desat-ie" alt=""/>
                   </a>
                   <div class="judulalbum">Beef Spices Blend</div>
                 </li>

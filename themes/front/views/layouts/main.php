@@ -139,7 +139,7 @@
               <li style="border-left: 1px solid #d6d6d6;"><a href="index.php" class="current">Home</a></li>
               <li><a href="<?php echo Yii::app()->createUrl('site/profile'); ?>">About Us</a></li>
               <li><a href="<?php echo Yii::app()->createUrl('site/product'); ?>">Products</a></li>
-              <li><a href="<?php echo Yii::app()->createUrl('site/truckshow'); ?>">Truck Show</a></li>
+              <li><a href="<?php echo Yii::app()->createUrl('site/trunk'); ?>">Truck Show</a></li>
               <li><a href="<?php echo Yii::app()->createUrl('site/gallery'); ?>">Gallery</a></li>
               <li style="border-right: 1px solid #d6d6d6;"><a href="<?php echo Yii::app()->createUrl('site/contact'); ?>">Contact Us</a></li>
             </ul>

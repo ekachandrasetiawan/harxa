@@ -15,14 +15,9 @@
       </div>
       <div class="container">
           <div class="row">
-            <div class="judul">
-                WELCOME TO OUR ONLINE STORE
-            </div>
-            <p class="description" style="margin-left: 10px; line-height: 25px;">
-                Lorem ipsum dolor sit amet conse ctetur addpisincing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliwua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                Lorem ipsum dolor sit amet conse ctetur addpisincing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliwua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-                Lorem ipsum dolor sit amet conse ctetur addpisincing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliwua. Ut enim adminim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat
-            </p>
+            <?php
+                echo $models->content;
+            ?>
           </div>
       </div>
       <div role="main" class="homepage container">
