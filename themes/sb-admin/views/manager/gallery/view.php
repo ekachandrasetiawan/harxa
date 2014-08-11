@@ -42,21 +42,7 @@
             'template' => "{items}",
             'selectionChanged'=>'function(id){
                 console.log(jQuery(\'input.chkBoxMainImage:checked\').val());
-                jQuery.ajax({
-                    url: "'.Yii::app()->createAbsoluteUrl('gallery/setMainImage').'",
-                    data: {id : jQuery(\'input.chkBoxMainImage:selected\').val() },
-                    type: "POST",
-                    success: function(data){
-                        if(data.execRow != 0){
-                            alert("Main Cover Has Been Set !");
-                        }else{
-                            alert("Nothing to set");
-                        }
-                    },
-                    error: function(data){
-                        alert("Error");
-                    }
-                });
+                
             }',
             'columns' => array(
                 array(
@@ -95,22 +81,23 @@
                     'header'=>'Main',
                     'class'=>'zii.widgets.grid.CCheckBoxColumn',
                     'value'=>function($data){
-                        return $data->id;                        
+                        return $data->id;
                     },
                     'checkBoxHtmlOptions'=>array(
                         'class'=>'chkBoxMainImage',
-                    )
+                    ),
                 ),
                 array(
                     'class'=>'booster.widgets.TbButtonColumn',
-                    'viewButtonUrl'=>function($data){
+                    'template'=>'{delete}',
+                    /*'viewButtonUrl'=>function($data){
                         return array('gallery/viewDetail','id'=>$data->id);
                     },
                     'updateButtonUrl'=>function($data){
                         return array('gallery/updateDetail','id'=>$data->id);
-                    },
+                    },*/
                     'deleteButtonUrl'=>function($data){
-                        return array('gallery/deleteDetail','id'=>$data->id);
+                        return array('manager/gallery/deleteDetail','id'=>$data->id);
                     }
                 )
             ),
@@ -122,7 +109,7 @@
         jQuery(\'input.chkBoxMainImage\').click(function(){
             var imgId = jQuery(this).val();
             jQuery.ajax({
-                url: "'.Yii::app()->createAbsoluteUrl('gallery/setMainImage').'",
+                url: "'.Yii::app()->createAbsoluteUrl('manager/gallery/setMainImage').'",
                 data: {id : jQuery(this).val() },
                 type: "POST",
                 success: function(data){

@@ -1,6 +1,9 @@
 <?php $form=$this->beginWidget('booster.widgets.TbActiveForm',array(
-	'id'=>'pages-form',
+	'id'=>'slider-form',
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array(
+		'enctype'=>'multipart/form-data'
+	)
 )); ?>
 
 <p class="help-block">Fields with <span class="required">*</span> are required.</p>
@@ -9,27 +12,9 @@
 
 	<?php echo $form->textFieldGroup($model,'title',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
 
-	<?php 
-
-		// echo $form->textAreaGroup($model,'content', array('widgetOptions'=>array('htmlOptions'=>array('rows'=>6, 'cols'=>50, 'class'=>'span8'))));
-		$this->widget(
-		    'booster.widgets.TbRedactorJs',
-		    array(
-		    	'model'=>$model,
-		    	'attribute'=>'content',
-		    	'editorOptions'=>array(
-		    		'minHeight'=>1000
-		    	)
-			    // 'name' => 'content',
-			    // 'value' => '<b>Here is the text which will be put into editor view upon opening.</b>',
-		    )
-	    );
-
-	?>
+	<?php echo $form->textAreaGroup($model,'caption', array('widgetOptions'=>array('htmlOptions'=>array('rows'=>6, 'cols'=>50, 'class'=>'span8')))); ?>
 	<div class="form-group">
-		<label for="Pages_tags" class="control-label">Tags</label>
-		<div class="select2-container select2-container-multi span8 form-control" id="s2id_Pages_tags" style="">
-		<label class="select2-offscreen" for="s2id_autogen1">Tags</label>
+		<label for="Slider_tags" class="control-label">Tags</label>
 		<?php 
 			// echo $form->textAreaGroup($model,'tags', array('widgetOptions'=>array('htmlOptions'=>array('rows'=>6, 'cols'=>50, 'class'=>'span8'))));
 			$this->widget(
@@ -55,6 +40,12 @@
 	</div>
 	
 
+	<?php echo $form->fileFieldGroup($model,'file',array('widgetOptions'=>array('htmlOptions'=>array('class'=>'span5','maxlength'=>255)))); ?>
+
+	<?php
+		echo $form->dropDownListGroup($model,'active',array('widgetOptions'=>array('data'=>array('1'=>'Active','0'=>'Not Active'))));
+	?>
+
 <div class="form-actions">
 	<?php
 		$this->widget('booster.widgets.TbButton', array(
@@ -62,9 +53,6 @@
 			'context'=>'primary',
 			'label'=>$model->isNewRecord ? 'Create' : 'Save',
 		));
-
-
-    
 	?>
 </div>
 

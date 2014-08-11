@@ -23,6 +23,7 @@ class m140803_121237_pages extends CDbMigration
 			'tags'=>'text default null',
 		));
 		$this->createIndex('page_title_idx',$this->pages,'title',true);
+		
 	}
 
 	public function safeDown()

@@ -35,7 +35,8 @@ class ProductController extends Controller
 	}
 
 
-	public function actionView($id){
+	public function actionView($id)
+	{
 		Yii::app()->theme = Yii::app()->params['adminTheme'];
 		// fetch model
 		$model = Product::model()->findByPk($id);

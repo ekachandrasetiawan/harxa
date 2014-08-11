@@ -38,20 +38,21 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
-          <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <!-- <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
           <li><a href="charts.html"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
           <li><a href="tables.html"><i class="fa fa-table"></i> Tables</a></li>
           <li><a href="forms.html"><i class="fa fa-edit"></i> Forms</a></li>
           <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
           <li><a href="bootstrap-elements.html"><i class="fa fa-desktop"></i> Bootstrap Elements</a></li>
-          <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li>
+          <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li> -->
           <li><a href="<?php echo Yii::app()->createUrl('/manager/pages/admin') ?>"><i class="fa fa-wrench"></i>Pages</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/schedule/admin') ?>"><i class="fa fa-wrench"></i>Schedule</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/gallery/admin') ?>"><i class="fa fa-wrench"></i>Gallery</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('/manager/slider/admin') ?>"><i class="fa fa-wrench"></i>Slider</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/cart/admin') ?>"><i class="fa fa-user"></i>Cart History</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/product/admin') ?>"><i class="fa fa-user"></i>Products</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/user/profile') ?>"><i class="fa fa-user"></i> My Profile</a></li>
-          <li>
+          <!-- <li>
             <a href="<?php echo Yii::app()->createUrl('/auth') ?>"><i class="fa fa-user"></i>Auth</a>
             <ul>
               <li><a href="<?php echo $this->createAbsoluteUrl('/auth/assignment/index'); ?>">Assignment</a></li>
@@ -59,7 +60,7 @@
               <li><a href="<?php echo $this->createAbsoluteUrl('/auth/task/index'); ?>">Task</a></li>
               <li><a href="<?php echo $this->createAbsoluteUrl('/auth/operation/index'); ?>">Operation</a></li>
             </ul>
-          </li>
+          </li> -->
           <li><a href="<?php echo Yii::app()->createUrl('/manager/setting/admin') ?>"><i class="fa fa-user"></i> Settings</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
