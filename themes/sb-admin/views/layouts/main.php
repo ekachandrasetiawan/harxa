@@ -45,6 +45,7 @@
           <li><a href="typography.html"><i class="fa fa-font"></i> Typography</a></li>
           <li><a href="bootstrap-elements.html"><i class="fa fa-desktop"></i> Bootstrap Elements</a></li>
           <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('/manager/pages/admin') ?>"><i class="fa fa-wrench"></i>Pages</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/schedule/admin') ?>"><i class="fa fa-wrench"></i>Schedule</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/gallery/admin') ?>"><i class="fa fa-wrench"></i>Gallery</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/cart/admin') ?>"><i class="fa fa-user"></i>Cart History</a></li>

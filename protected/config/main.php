@@ -30,6 +30,7 @@ return array(
 	),
 
 	'modules'=>array(
+		// 'admin',
 		'manager',
 		// 'auth',
 		 'user'=>array(
@@ -38,7 +39,6 @@ return array(
  
             # send activation email
             'sendActivationMail' => true,
- 
             # allow access for non-activated users
             'loginNotActiv' => false,
  

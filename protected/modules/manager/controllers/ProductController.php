@@ -39,6 +39,7 @@ class ProductController extends Controller
 		Yii::app()->theme = Yii::app()->params['adminTheme'];
 		// fetch model
 		$model = Product::model()->findByPk($id);
+		// echo $model->mainCover->file_name;
 		if(!$model) throw new CHttpException(404,'Product Not Found');
 
 		// AJAX EDITABLE
