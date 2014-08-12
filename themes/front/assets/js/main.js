@@ -2,12 +2,16 @@
     $('#listproduct').click(function(){
         $('#productgrid').fadeOut();
         $('#productlist').fadeIn();
+        
+        return false;
     });
  });
  $(document).ready(function(){
     $('#gridproduct').click(function(){
         $('#productgrid').fadeIn();
         $('#productlist').fadeOut();
+        
+        return false;
     });
  });
 

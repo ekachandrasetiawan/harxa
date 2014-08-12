@@ -47,7 +47,7 @@
           <li class="span3 alpha33">
             <div class="prod-wrapper">
               <span class="badge corner-badge hot ir hidden">Hot</span>
-              <a href="<?php echo Yii::app()->createUrl('site/',array('view'=>'productdetail','id'=>$model->id)); ?>">
+              <a href="<?php echo $this->createUrl('productDetail',array('id'=>$model->id)); ?>">
                 
                 <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$model->mainCover->file_name ?>" class="desat-ie" alt=""/>
               </a>
@@ -61,34 +61,26 @@
                         <th>Stock</th>
                         <th>Status</th>
                     </tr>
+                    <?php foreach($model->productLists as $detail): ?>
                     <tr>
-                        <td>S</td>
+                        <td><?php echo $detail->size ?></td>
                         <td>Not Available</td>
                         <td>1 Buking</td>
                     </tr>
-                    <tr>
-                        <td>M</td>
-                        <td>Ready</td>
-                        <td>1 Buking</td>
-                    </tr>
-                    <tr>
-                        <td>L</td>
-                        <td>Ready</td>
-                        <td>1 Buking</td>
-                    </tr>
+                    <?php endforeach; ?>
                 </table>
             </span>
               <span class="info gradient">
-                <span class="title">Men glass mode 2012</span>
+                <span class="title"><?php echo $model->name ?></span>
                 <span class="add-to-view clearfix">
                   <span class="icon ir">Cart</span>
-                  <a href="7-cart.html" class="text">View Detail</a>
+                  <a href="<?php echo $this->createUrl('productDetail',array('id'=>$model->id)); ?>" class="text">View Detail</a>
                 </span>
                     <div class="grid-display">
                         <span class="badge price-badge">
                         <span class="value">
                         <span>Rp.</span>
-                          <span>1.500.000</span>
+                          <span><?php echo Formatter::format_rupiah(''.$model->price.''); ?></span>
                         </span>
                       </span>
                   </div>
@@ -97,11 +89,21 @@
           </li>
           <?php endforeach; ?>
           </ul>
-            
+            <ul id="productlist" class="row clearfix rr list-display product" style="display: none;">
             <?php
-              echo $this->renderPartial('/site/product/productlist');
+                $this->widget('zii.widgets.CListView', array(
+                    'dataProvider'=>$dataProvider,
+                    'itemView'=>'/site/product/productListView',   // refers to the partial view named '_post'
+                    'sortableAttributes'=>array(
+                        'name',
+                    ),
+                    //'cssFile'=>Yii::app()->baseUrl.'/asset/css.css',
+                    //'pagerCssClass'=>'pagination',
+                ));
+                //echo $this->renderPartial('/site/product/productlist',array('models'=>$models));
                 //include "content/productlist.php";
             ?>
+            </ul>
             <div class="products-view-nav row bottom">
             
               <div class="span3">

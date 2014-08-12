@@ -301,3 +301,6 @@ position: absolute;
     color: #666666;
     border-bottom: 1px solid #999;
 }
+.summary,.sorter{
+    display: none;
+}

@@ -22,7 +22,8 @@
         <div class="row">
         
           <div class="span12">
-            <div class="row">              
+            <div class="row">    
+              
               <div class="span5 gallery">
                 <div class="image">
                     <a href="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_1-500x500.jpg" title="Canon EOS 5D" class="cloud-zoom colorbox" id='zoom1' rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false">
@@ -70,7 +71,9 @@
                 </ul>
                 
                 <hr/>
-                
+                <?php
+                    echo print_r($models);
+                ?>
                 <ul class="rr clearfix buy-wrapper">
                   <li class="clearfix quantity">
                   

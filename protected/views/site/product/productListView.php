@@ -1,11 +1,11 @@
-      <ul id="productlist" class="row clearfix rr list-display product" style="display: none;">
-        <?php foreach($models as $model): ?> 
+      <!--<ul id="productlist" class="row clearfix rr list-display product" style="display: none;"> -->
+        <?php //foreach($models as $model): ?> 
              <li class="span12">
             <div class="row">
               <div class="span3 desat photo-wrapper">
-                <!--<span class="badge corner-badge off-35 ir">35% off</span>-->
-                <a href="<?php echo $this->createUrl('productDetail',array('id'=>$model->id)); ?>">
-                  <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$model->mainCover->file_name ?>" alt=""/>
+                <!-- <span class="badge corner-badge off-35 ir">35% off</span>-->
+                <a href="<?php echo $this->createUrl('productDetail',array('id'=>$data->id)); ?>">
+                  <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$data->mainCover->file_name ?>" alt=""/>
                 </a>
               </div>
               <div class="span9 info clearfix">
@@ -51,5 +51,5 @@
               </div>
             </div>
           </li>
-        <?php endforeach; ?>
-        </ul>
+        <?php //endforeach; ?>
+        <!--</ul>-->

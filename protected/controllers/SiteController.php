@@ -5,6 +5,8 @@ class SiteController extends Controller
 	/**
 	 * Declares class-based actions.
 	 */
+     
+    
 	public function actions()
 	{
 		return array(
@@ -165,7 +167,19 @@ class SiteController extends Controller
     
     public function actionProduct()
     {
+        $dataProvider=new CActiveDataProvider('Product',array('pagination'=>array('pageSize'=>10)));
         $models=Product::model()->findAll();
-        $this->render('product/index',array('models'=>$models));
+        $this->render('product/index',array('dataProvider'=>$dataProvider,'models'=>$models));
+    }
+    public function actionProductlist()
+    {
+        $models=Product::model()->findAll();
+        $this->render('product/productlist',array('models'=>$models));
+    }
+    
+    public function actionProductdetail($id)
+    {
+        $models = Product::model()->findByPk($id);
+        $this->render('product/productdetail',array('models'=>$models));
     }
 }

@@ -3,7 +3,7 @@
       <div class="span12 breadcrumb">
         <ul class="rr">
           <li>
-            <span class="splitter">/</span>
+            <span class="splitter">/</span> 
             <a href="#">Home</a>
           </li>
           <li>
@@ -25,27 +25,23 @@
             <div class="row">              
               <div class="span5 gallery">
                 <div class="image">
-                    <a href="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_1-500x500.jpg" title="Canon EOS 5D" class="cloud-zoom colorbox" id='zoom1' rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false">
-                        <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_1-350x350.jpg" title="Canon EOS 5D" alt="Canon EOS 5D" id="image" />
+                    <a href="<?php echo yii::app()->baseUrl.'/images/products/'.$models->mainCover->file_name ?>" title="<?php echo $models->name ?>" class="cloud-zoom colorbox" id='zoom1' rel="adjustX: 0, adjustY:0, tint:'#000000',tintOpacity:0.2, zoomWidth:360, position:'inside', showTitle:false">
+                        <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$models->mainCover->file_name ?>" title="<?php echo $models->name ?>" alt="<?php echo $models->name ?>" id="image" />
                             <span id="zoom-image">
                                 <i class="zoom_bttn"></i> Zoom</span>
                     </a>
                 </div>
                 <div class="image-additional">
-                    <a href="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_1-500x500.jpg" title="Canon EOS 5D" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_1-350x350.jpg' ">
-                        <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_1-350x350.jpg" width="62" title="Canon EOS 5D" alt="Canon EOS 5D" />
+                <?php foreach($models->productImages as $image): ?>
+                    <a href="<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>" title="<?php echo $models->name ?>" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>' ">
+                        <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>" width="62" title="<?php echo $models->name ?>" alt="<?php echo $models->name ?>" />
                     </a>
-                    <a href="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_3-500x500.jpg" title="Canon EOS 5D" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_3-350x350.jpg' ">
-                        <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_3-350x350.jpg" width="62" title="Canon EOS 5D" alt="Canon EOS 5D" />
-                    </a>
-                    <a href="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_2-500x500.jpg" title="Canon EOS 5D" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_2-350x350.jpg' ">
-                        <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>image/product/canon_eos_5d_2-350x350.jpg" width="62" title="Canon EOS 5D" alt="Canon EOS 5D" />
-                    </a>
+                <?php endforeach; ?>
                 </div>
               </div>
               
               <div class="span7 product">
-                <h1>Green camouflage utility</h1>
+                <h1><?php echo  $models->name ?></h1>
                 <p class="description">
                   Vestibulum ante ipsum primis in faucibus orci luctus et 
                   ultrrd rices posuere cubilia Curae; Aenean eleifend laoreet.
@@ -56,9 +52,9 @@
                   <li class="size clearfix">
                     <span class="info-title">Size:</span>
                     <ul class="rr clearfix">
-                      <li>S</li>
-                      <li class="current">M</li>
-                      <li>L</li>
+                      <?php foreach($models->productLists as $size): ?>
+                      <li><?php echo $size->size ?></li>
+                      <?php endforeach; ?>
                     </ul>
                   </li>
                   <li class="avail clearfix">
@@ -100,7 +96,7 @@
                   <li class="price-wrapper">
                   
                     <span class="price">
-                      <span class="currency">Rp.</span><span class="value">1.500.000</span>
+                      <span class="currency">Rp.</span><span class="value"><?php echo Formatter::format_rupiah(''.$models->price.''); ?></span>
                     </span>
                   
                   </li>

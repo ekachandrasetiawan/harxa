@@ -92,6 +92,17 @@ return array(
 				)
 			),
 		),*/
+        'widgetFactory'=>array(
+                'widgets'=>array(
+                        'CLinkPager'=>array(
+                            'cssFile'=>false,
+                            //'pagerCssClass'=>'pagination',
+                            //'cssFile'=>(strlen(dirname($_SERVER['SCRIPT_NAME']))>1 ? dirname($_SERVER['SCRIPT_NAME']) : '' ) . '/css/pager.css',
+                        ),
+
+                ),
+        ),
+
 		'booster'=>array(
 			'class'=>'booster.components.Booster',
 		),
