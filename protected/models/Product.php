@@ -31,11 +31,11 @@ class Product extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, tags', 'length', 'max'=>255),
-			array('price', 'safe'),
+			array('name,short_desc', 'length', 'max'=>255),
+			array('price,description,review,tags', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, price, tags', 'safe', 'on'=>'search'),
+			array('id, name, price, tags,short_desc', 'safe', 'on'=>'search'),
 		);
 	}
 

@@ -19,9 +19,9 @@
 			'name',
 			array(
 				// 'hint'=>'Name Of Product'
-				'wrapperHtmlOptions' => array(
+				/*'wrapperHtmlOptions' => array(
 					'class' => 'col-xs-6 col-sm-4',
-				),
+				),*/
 				'labelOptions'=>array(
 					'class'=>'col-sm-2',
 				)
@@ -32,45 +32,103 @@
 			'price',
 			array(
 				// 'hint'=>'Tags'
-				'wrapperHtmlOptions' => array(
-					'class' => 'col-xs-6 col-sm-4',
-				),
+				// 'wrapperHtmlOptions' => array(
+				// 	'class' => 'col-xs-6 col-sm-4',
+				// ),
 				'labelOptions'=>array(
 					'class'=>'col-sm-2',
 				)
 			)
 		);
-		
 
-		
-		?>
-		<div class="form-group">
-			<label for="Product_price" class="col-sm-2 col-sm-3 control-label">Tags</label>
-			<div class="col-xs-6 col-sm-4 col-sm-9">
-				<!-- <input type="text" id="Product_price" name="Product[price]" placeholder="Price" class="form-control"> -->
-				<?php
-				$this->widget(
-			'booster.widgets.TbSelect2',
+
+		echo $form->textFieldGroup(
+			$model,
+			'short_desc',
 			array(
-				// 'id'=>CHtml::activeId($model,'value'),
-				// 'id'=>'values',
-				'asDropDownList' => false,
-				// 'name' => 'clevertech',
-				'form'=>$form,
-				'model'=>$model,
-				'attribute'=>'tags',
-				'options' => array(
-					'tags' => array(),
-					'placeholder' => '..',
-					'width' => '100%',
-					'tokenSeparators' => array(',',' ','	'),
+				// 'hint'=>'Tags'
+				// 'wrapperHtmlOptions' => array(
+				// 	'class' => 'col-xs-6 col-sm-4',
+				// ),
+				'labelOptions'=>array(
+					'class'=>'col-sm-2',
 				)
 			)
 		);
-				?>
-			</div>
+	?>
+
+	<div class="form-group">
+		<label for="Product_price" class="col-sm-2 col-sm-3 control-label">Description</label>
+		<div class="col-sm-9">
+			<?php
+				// LONG DESCRIPTION
+				$this->widget(
+					'booster.widgets.TbRedactorJs',
+					[
+						'model'=>$model,
+						'attribute'=>'description',
+						'name' => 'description',
+						// 'value' => '<b>Here is the text which will be put into editor view upon opening.</b>',
+						'editorOptions'=>array(
+				    		'minHeight'=>250
+				    	)
+
+					]
+				);
+			?>
 		</div>
-		<?php
+	</div>
+
+
+	<div class="form-group">
+		<label for="Product_price" class="col-sm-2 col-sm-3 control-label">Review</label>
+		<div class="col-sm-9">
+			<?php
+				// LONG DESCRIPTION
+				$this->widget(
+					'booster.widgets.TbRedactorJs',
+					[
+						'model'=>$model,
+						'attribute'=>'review',
+						'name' => 'review',
+						// 'value' => '<b>Here is the text which will be put into editor view upon opening.</b>',
+						'editorOptions'=>array(
+				    		'minHeight'=>250
+				    	)
+
+					]
+				);
+			?>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<label for="Product_price" class="col-sm-2 col-sm-3 control-label">Tags</label>
+		<div class="col-xs-6 col-sm-4 col-sm-9">
+			<!-- <input type="text" id="Product_price" name="Product[price]" placeholder="Price" class="form-control"> -->
+			<?php
+			$this->widget(
+		'booster.widgets.TbSelect2',
+		array(
+			// 'id'=>CHtml::activeId($model,'value'),
+			// 'id'=>'values',
+			'asDropDownList' => false,
+			// 'name' => 'clevertech',
+			'form'=>$form,
+			'model'=>$model,
+			'attribute'=>'tags',
+			'options' => array(
+				'tags' => array(),
+				'placeholder' => '..',
+				'width' => '100%',
+				'tokenSeparators' => array(',',' ','	'),
+			)
+		)
+	);
+			?>
+		</div>
+	</div>
+	<?php
 		
 		/*echo $form->textFieldGroup(
 			$model,

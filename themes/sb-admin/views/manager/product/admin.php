@@ -15,12 +15,21 @@
             'template' => "{items}",
             'columns' => array(
                 // 'id',
+                array(
+                    'header'=>'Main Cover',
+                    'type'=>'image',
+                    'value'=>function($data){
+                        return Yii::app()->baseUrl.'/images/products/thumb/'.$data->mainCover->file_name;
+                    }
+                ),
                 'name',
                 'price',
+
                 // 'qty',
                 'tags',
                 array(
-                    'class'=>'booster.widgets.TbButtonColumn'
+                    'class'=>'booster.widgets.TbButtonColumn',
+                    'template'=>'{view}&nbsp;&nbsp;&nbsp;{delete}'
                 )
             ),
         )

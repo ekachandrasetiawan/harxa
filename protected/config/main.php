@@ -11,7 +11,7 @@ Yii::setPathOfAlias('auth',dirname(__FILE__) . DIRECTORY_SEPARATOR . '../modules
 return array(
 	'theme'=>'front',
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'My Web Application',
+	'name'=>'Harxa',
 
 	// preloading 'log' component
 	'preload'=>array(
