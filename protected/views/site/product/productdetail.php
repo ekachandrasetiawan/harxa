@@ -17,10 +17,12 @@
         </ul>
       </div>
     </div>
-  </div>   
+  </div>
+  <?php
+  
+  ?>
       <div role="main" class="container product-details">
         <div class="row">
-        
           <div class="span12">
             <div class="row">              
               <div class="span5 gallery">
@@ -34,7 +36,7 @@
                 <div class="image-additional">
                 <?php foreach($models->productImages as $image): ?>
                     <a href="<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>" title="<?php echo $models->name ?>" class="cloud-zoom-gallery" rel="useZoom: 'zoom1', smallImage: '<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>' ">
-                        <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>" width="62" title="<?php echo $models->name ?>" alt="<?php echo $models->name ?>" />
+                        <img src="<?php echo yii::app()->baseUrl.'/images/products/'.$image->file_name ?>" width="62" height="62" title="<?php echo $models->name ?>" alt="<?php echo $models->name ?>" />
                     </a>
                 <?php endforeach; ?>
                 </div>

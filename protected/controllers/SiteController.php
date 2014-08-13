@@ -187,4 +187,5 @@ class SiteController extends Controller
         if(!$models) throw new CHttpException(404,'Product Data Not Found');
         $this->render('product/productdetail',array('models'=>$models));
     }
+    
 }
