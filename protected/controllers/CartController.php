@@ -55,6 +55,19 @@ class CartController extends Controller
 
 		
 	}
+    
+    public function actionShoppingcart()
+    {
+        $session=Yii::app()->session->sessionID;
+        
+        $models = Cart::model()->findByAttributes(array('sess_id'=>$session));
+        
+        
+        if(!$models) throw new CHttpException(404,'Shopiing Cart Not Found');
+        $detail=CartDetail::model()->findAllByAttributes(array('cart_id'=>$models->id));
+        if(!$detail) throw new CHttpException(404,'Shopping Cart Not Found');
+        $this->render('cart/index',array('models'=>$models,'detail'=>$detail));
+    }
 
 	public function actionShowCart($id=null){
 		if($id==null){

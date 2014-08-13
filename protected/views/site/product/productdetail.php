@@ -56,12 +56,16 @@
                     <li class="size clearfix">
                       <span class="info-title">Size:</span>
                       <ul class="rr clearfix">
-                        <?php foreach($models->productLists as $size): ?>
+                        <?php 
+                        $no=1;
+                        foreach($models->productLists as $size): ?>
                         <li>
-                          <input type="radio" name="size" value="<?php echo $size->id; ?>">
-                          <?php echo strtoupper($size->size) ?>
+                              <input type="radio" id="radio<?php echo $no; ?>" name="size" value="<?php echo $size->id; ?>">
+                              <label for="radio<?php echo $no; ?>"><?php echo strtoupper($size->size) ?></label>
                         </li>
-                        <?php endforeach; ?>
+                        <?php 
+                        $no++;
+                        endforeach; ?>
                       </ul>
                     </li>
                     <li class="avail clearfix">
@@ -71,7 +75,7 @@
                       </ul>
                     </li>
                   </ul>
-                  
+              
                   <hr/>
                   
                   <ul class="rr clearfix buy-wrapper">
@@ -95,7 +99,7 @@
                     <li>
                     
                       <!-- <a href="#" class="add-to-cart clearfix"> -->
-                        <span class="icon ir">Cart</span>
+                        <!--<span class="icon ir add-to-cart">Cart</span>-->
                         <input type="hidden" name="product_id" value="<?php echo CHtml::encode($models->id) ?>" />
                         <input type="hidden" name="price" value="<?php echo CHtml::encode($models->price) ?>" />
                         <input type="submit" name="submit" value="Add to Cart">

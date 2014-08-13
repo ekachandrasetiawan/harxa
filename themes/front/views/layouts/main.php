@@ -126,7 +126,7 @@
           <div class="span4">
             <div class="shopping-cart">
               <span class="icon ir">Cart</span>
-              <span class="text"><a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'cart')); ?>"><span class="title">Shopping Cart</span></a> (<span>0</span> items) - </span>
+              <span class="text"><a href="<?php echo Yii::app()->createUrl('cart/shoppingcart'); ?>"><span class="title">Shopping Cart</span></a> (<span>0</span> items) - </span>
               <span class="price"><span>$</span><span>0.00</span></span>
             </div>
           </div>
