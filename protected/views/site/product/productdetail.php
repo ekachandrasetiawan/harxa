@@ -40,7 +40,7 @@
                 </div>
               </div>
               
-              <form action="<?php echo $this->createAbsoluteUrl('cart/addToCart'); ?>">
+              <form action="<?php echo $this->createAbsoluteUrl('cart/addToCart'); ?>" method="POST">
                 <div class="span7 product">
                   <h1><?php echo  $models->name ?></h1>
                   <p class="description">
@@ -84,7 +84,7 @@
                           </div>
                         </div>
                       
-                        <select id="main-quantity" class="main">
+                        <select name="qty" id="main-quantity" class="main">
                           <option selected="selected" value="1">1</option>
                         </select>                    
                       </div>
@@ -92,11 +92,12 @@
                     </li>                  
                     <li>
                     
-                      <a href="#" class="add-to-cart clearfix">
+                      <!-- <a href="#" class="add-to-cart clearfix"> -->
                         <span class="icon ir">Cart</span>
                         <input type="hidden" name="product_id" value="<?php echo CHtml::encode($models->id) ?>" />
-                        <span class="text">Add to cart</span>
-                      </a>
+                        <input type="hidden" name="price" value="<?php echo CHtml::encode($models->price) ?>" />
+                        <input type="submit" name="submit" value="Add to Cart">
+                      <!-- </a> -->
                     
                     </li>                  
                     <li class="price-wrapper">
