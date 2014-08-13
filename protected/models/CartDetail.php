@@ -16,6 +16,7 @@
  */
 class CartDetail extends CActiveRecord
 {
+	public $totalPriceLine;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -35,6 +36,7 @@ class CartDetail extends CActiveRecord
 			array('cart_id, qty', 'required'),
 			array('cart_id, product_id, qty', 'numerical', 'integerOnly'=>true),
 			array('price', 'safe'),
+			array('totalPriceLine','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, cart_id, product_id, qty, price', 'safe', 'on'=>'search'),
@@ -106,5 +108,9 @@ class CartDetail extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function afterFind(){
+		$this->totalPriceLine = $this->qty*$this->price;
 	}
 }

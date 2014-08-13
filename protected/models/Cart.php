@@ -18,6 +18,7 @@
  */
 class Cart extends CActiveRecord
 {
+	public $subTotal;
 	/**
 	 * @return string the associated database table name
 	 */
@@ -39,6 +40,7 @@ class Cart extends CActiveRecord
 			array('user_id, type, state, pass_scheduled', 'numerical', 'integerOnly'=>true),
 			array('code', 'length', 'max'=>20),
 			array('sess_id', 'length', 'max'=>255),
+			array('subTotal','safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, code, user_id, sess_id, type, state, pass_scheduled', 'safe', 'on'=>'search'),
@@ -132,5 +134,20 @@ class Cart extends CActiveRecord
 			return false;
 		}
 		
+	}
+
+
+	public function afterFind(){
+		$this->subTotal = $this->countSubTotal();
+	}
+
+	private function countSubTotal(){
+		$subTotal = 0;
+
+		foreach($this->cartDetails as $detail):
+			$subTotal += $detail->totalPriceLine;
+		endforeach;
+
+		return $subTotal;
 	}
 }

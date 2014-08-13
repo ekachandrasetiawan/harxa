@@ -62,13 +62,13 @@
                   </th>
                 </tr>
                 {items}
-                
+
                 <tr>
                   <td colspan="3" class="left">
                     Total products (tax incl.):
                   </td>
                   <td colspan="2" class="price rigth">
-                     <span class="currency">Rp.</span><span class="value">3.000.000</span>
+                     <span class="currency">Rp.</span><span class="value">'.$cart->subTotal.'</span>
                   </td>
                 </tr>
                 <tr>
@@ -96,16 +96,7 @@
          
         <!-- </table> -->
 
-        <?php
-        /*$this->widget('zii.widgets.grid.CGridView',array(
-          'id'=>'gridCart',
-          'dataProvider'=>$cartDetailProvider,
-          'columns'=>array(
-            'id',
-            'product_id',
-          )
-        ));*/
-        ?>
+        
 
 
         
