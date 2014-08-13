@@ -62,6 +62,7 @@
                 
                 array(
                     'class'=>'booster.widgets.TbButtonColumn',
+                    'template'=>'{delete}',
                     'viewButtonUrl'=>function($data){
                         return array('product/viewImage','id'=>$data->id);
                     },
@@ -140,6 +141,7 @@
                 ),
                 array(
                     'class'=>'booster.widgets.TbButtonColumn',
+                    'template'=>'{delete}',
                     'viewButtonUrl'=>function($data){
                         return array('product/viewImage','id'=>$data->id);
                     },

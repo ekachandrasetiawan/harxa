@@ -51,16 +51,9 @@
           <li><a href="<?php echo Yii::app()->createUrl('/manager/slider/admin') ?>"><i class="fa fa-wrench"></i>Slider</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/cart/admin') ?>"><i class="fa fa-user"></i>Cart History</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/product/admin') ?>"><i class="fa fa-user"></i>Products</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('/user/profile') ?>"><i class="fa fa-user"></i> My Profile</a></li>
-          <!-- <li>
-            <a href="<?php echo Yii::app()->createUrl('/auth') ?>"><i class="fa fa-user"></i>Auth</a>
-            <ul>
-              <li><a href="<?php echo $this->createAbsoluteUrl('/auth/assignment/index'); ?>">Assignment</a></li>
-              <li><a href="<?php echo $this->createAbsoluteUrl('/auth/role/index'); ?>">Role</a></li>
-              <li><a href="<?php echo $this->createAbsoluteUrl('/auth/task/index'); ?>">Task</a></li>
-              <li><a href="<?php echo $this->createAbsoluteUrl('/auth/operation/index'); ?>">Operation</a></li>
-            </ul>
-          </li> -->
+          <li><a href="<?php echo Yii::app()->createUrl('/user/profile'); ?>"><i class="fa fa-user"></i> My Profile</a></li>
+          <li><a href="<?php echo Yii::app()->createUrl('/user/user') ?>"><i class="fa fa-user"></i> Users</a></li>
+          
           <li><a href="<?php echo Yii::app()->createUrl('/manager/setting/admin') ?>"><i class="fa fa-user"></i> Settings</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
@@ -96,7 +89,7 @@
               <li class="message-preview">
                 <a href="#">
                   <span class="avatar"><img src="http://placehold.it/50x50"></span>
-                  <span class="name">John Smith:</span>
+                  <span class="name"><?php echo CHtml::encode(Yii::app()->user->getName()); ?></span>
                   <span class="message">Hey there, I wanted to ask you something...</span>
                   <span class="time"><i class="fa fa-clock-o"></i> 4:34 PM</span>
                 </a>
@@ -137,9 +130,9 @@
             </ul>
           </li>
           <li class="dropdown user-dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo CHtml::encode(ucwords(Yii::app()->user->getName())); ?> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#"><i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="<?php echo Yii::app()->createUrl('/user/profile'); ?>"><i class="fa fa-user"></i> Profile</a></li>
               <li><a href="#"><i class="fa fa-envelope"></i> Inbox <span class="badge">7</span></a></li>
               <li><a href="#"><i class="fa fa-gear"></i> Settings</a></li>
               <li class="divider"></li>

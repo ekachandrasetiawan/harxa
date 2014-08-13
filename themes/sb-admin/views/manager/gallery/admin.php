@@ -15,7 +15,13 @@
             'columns' => array(
                 'name',
                 'description',
-                'main_cover',
+                array(
+                    'name'=>'main_cover',
+                    'type'=>'image',
+                    'value'=>function($data){
+                        return Yii::app()->baseUrl.'/images/gallery/thumb/'.$data->mainCover->file_name;
+                    }
+                ),
                 array(
                     'class'=>'booster.widgets.TbButtonColumn'
                 )

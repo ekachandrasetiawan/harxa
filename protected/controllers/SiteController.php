@@ -145,23 +145,27 @@ class SiteController extends Controller
     public function actionProfile()
     {
      $models = Pages::model()->findByPk('2');
+     if(!$models) throw new CHttpException(404,'Page Profile Not Found');
      $this->render('profile/index',array('models'=>$models));   
     }
     
     public function actionGalleryView($id)
     {
      $models = GalleryDetail::model()->findAllByAttributes(array('gallery_id'=>$id));
+     if(!$models) throw new CHttpException(404,'Gallery Data Not Found');
      $this->render('gallery/galleryView',array('models'=>$models));   
     }
     
     public function actionTrunk()
     {
        $models = Pages::model()->findByPk('3');
+       if(!$models) throw new CHttpException(404,'Page Not Found');
        $this->render('trunk/index',array('models'=>$models));           
     }
     
     public function actionGallery(){
         $models = Gallery::model()->findAll();
+
         $this->render('gallery/index',array('models'=>$models));
     }
     
@@ -180,6 +184,7 @@ class SiteController extends Controller
     public function actionProductdetail($id)
     {
         $models = Product::model()->findByPk($id);
+        if(!$models) throw new CHttpException(404,'Product Data Not Found');
         $this->render('product/productdetail',array('models'=>$models));
     }
 }

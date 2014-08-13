@@ -79,7 +79,7 @@
                   if(Yii::app()->user->isGuest):
                   ?>
                   <li>
-                    <a href="<?php echo Yii::app()->createUrl('site/login'); ?>">
+                    <a href="<?php echo Yii::app()->createUrl('user/login'); ?>">
                       <span class="ir icon log-in"></span>
                       <span>Log in</span>
                     </a>
