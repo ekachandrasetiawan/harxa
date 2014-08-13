@@ -40,106 +40,113 @@
                 </div>
               </div>
               
-              <div class="span7 product">
-                <h1><?php echo  $models->name ?></h1>
-                <p class="description">
-                  Vestibulum ante ipsum primis in faucibus orci luctus et 
-                  ultrrd rices posuere cubilia Curae; Aenean eleifend laoreet.
-                </p>
-                <hr/>
-                
-                <ul class="rr prefs clearfix">
-                  <li class="size clearfix">
-                    <span class="info-title">Size:</span>
-                    <ul class="rr clearfix">
-                      <?php foreach($models->productLists as $size): ?>
-                      <li><?php echo $size->size ?></li>
-                      <?php endforeach; ?>
-                    </ul>
-                  </li>
-                  <li class="avail clearfix">
-                    <span class="info-title">Availability:</span>
-                    <ul class="rr clearfix">
-                      <li class="value">In stock</li>
-                    </ul>
-                  </li>
-                </ul>
-                
-                <hr/>
-                
-                <ul class="rr clearfix buy-wrapper">
-                  <li class="clearfix quantity">
+              <form action="<?php echo $this->createAbsoluteUrl('cart/addToCart'); ?>">
+                <div class="span7 product">
+                  <h1><?php echo  $models->name ?></h1>
+                  <p class="description">
+                    <?php echo CHtml::decode($models->description) ?>
+                  </p>
+                  <hr/>
                   
-                    <div class="info-title">Quantity:</div>
-                    <div class="f-select-wrapper fl">                  
-                      <div id="current-quantity" class="current" class="clearfix">
-                        <div class="value">2</div>
-                        <div class="button gradient">
-                          <span class="arrow ir">Open</span>
+
+                  
+                  <ul class="rr prefs clearfix">
+                    <li class="size clearfix">
+                      <span class="info-title">Size:</span>
+                      <ul class="rr clearfix">
+                        <?php foreach($models->productLists as $size): ?>
+                        <li>
+                          <input type="radio" name="size" value="<?php echo $size->id; ?>">
+                          <?php echo strtoupper($size->size) ?>
+                        </li>
+                        <?php endforeach; ?>
+                      </ul>
+                    </li>
+                    <li class="avail clearfix">
+                      <span class="info-title">Availability:</span>
+                      <ul class="rr clearfix">
+                        <li class="value">In stock</li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+                  <hr/>
+                  
+                  <ul class="rr clearfix buy-wrapper">
+                    <li class="clearfix quantity">
+                    
+                      <div class="info-title">Quantity:</div>
+                      <div class="f-select-wrapper fl">                  
+                        <div id="current-quantity" class="current" class="clearfix">
+                          <div class="value">2</div>
+                          <div class="button gradient">
+                            <span class="arrow ir">Open</span>
+                          </div>
                         </div>
+                      
+                        <select id="main-quantity" class="main">
+                          <option selected="selected" value="1">1</option>
+                        </select>                    
                       </div>
+                      
+                    </li>                  
+                    <li>
                     
-                      <select id="main-quantity" class="main">
-                        <option selected="selected" value="1">1</option>
-                      </select>                    
-                    </div>
+                      <a href="#" class="add-to-cart clearfix">
+                        <span class="icon ir">Cart</span>
+                        <input type="hidden" name="product_id" value="<?php echo CHtml::encode($models->id) ?>" />
+                        <span class="text">Add to cart</span>
+                      </a>
                     
-                  </li>                  
-                  <li>
+                    </li>                  
+                    <li class="price-wrapper">
+                    
+                      <span class="price">
+                        <span class="currency">Rp.</span><span class="value"><?php echo Formatter::format_rupiah(''.$models->price.''); ?></span>
+                      </span>
+                    
+                    </li>
+                  </ul>                
                   
-                    <a href="#" class="add-to-cart clearfix">
-                      <span class="icon ir">Cart</span>
-                      <span class="text">Add to cart</span>
-                    </a>
+                  <hr/>
                   
-                  </li>                  
-                  <li class="price-wrapper">
+                  <ul class="rr options clearfix">
+                    <li>
+                      <a href="#" class="clearfix">
+                        <span class="icon wishlist ir">Wishlist</span>
+                        <span class="text">Add to wishlist</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#" class="clearfix">
+                        <span class="icon compare ir">Compare</span>
+                        <span class="text">Add to compare</span>
+                      </a>
+                    </li>
+                    <li class="last">
+                      <a href="#" class="clearfix">
+                        <span class="icon email ir">Email</span>
+                        <span class="text">Email to a friend</span>
+                      </a>
+                    </li>
+                  </ul>                
                   
-                    <span class="price">
-                      <span class="currency">Rp.</span><span class="value"><?php echo Formatter::format_rupiah(''.$models->price.''); ?></span>
-                    </span>
+                  <hr/>
                   
-                  </li>
-                </ul>                
-                
-                <hr/>
-                
-                <ul class="rr options clearfix">
-                  <li>
-                    <a href="#" class="clearfix">
-                      <span class="icon wishlist ir">Wishlist</span>
-                      <span class="text">Add to wishlist</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#" class="clearfix">
-                      <span class="icon compare ir">Compare</span>
-                      <span class="text">Add to compare</span>
-                    </a>
-                  </li>
-                  <li class="last">
-                    <a href="#" class="clearfix">
-                      <span class="icon email ir">Email</span>
-                      <span class="text">Email to a friend</span>
-                    </a>
-                  </li>
-                </ul>                
-                
-                <hr/>
-                
-                <div class="share-product">
-                    <!-- AddThis Button BEGIN -->
-                    <div class="addthis_toolbox addthis_default_style ">
-                    <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-                    <a class="addthis_button_tweet"></a>
-                    <a class="addthis_button_pinterest_pinit"></a>
-                    <a class="addthis_counter addthis_pill_style"></a>
-                    </div>
-                    <script type="text/javascript" src="../../../s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508f0d4568c64922"></script>
-                    <!-- AddThis Button END -->
+                  <div class="share-product">
+                      <!-- AddThis Button BEGIN -->
+                      <div class="addthis_toolbox addthis_default_style ">
+                      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+                      <a class="addthis_button_tweet"></a>
+                      <a class="addthis_button_pinterest_pinit"></a>
+                      <a class="addthis_counter addthis_pill_style"></a>
+                      </div>
+                      <script type="text/javascript" src="../../../s7.addthis.com/js/300/addthis_widget.js#pubid=xa-508f0d4568c64922"></script>
+                      <!-- AddThis Button END -->
+                  </div>
+                  
                 </div>
-                
-              </div>
+              </form>
               
             </div>
             
