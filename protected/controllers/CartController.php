@@ -34,7 +34,46 @@ class CartController extends Controller
 	}
 	*/
 	public function actionAddToCart(){
+		// check if cart compare on session
+		$check = Cart::model()->checkCartBySession();
+		if(!$check){
+			// if check is false then we will create new cart
+			$cart = Cart::model()->startNewCart();
+
+		}else{
+			$cart = $check;
+		}
+
+		$cartDetail = new CartDetail;
+		$cartDetail->cart_id = $cart->id;
+		$cartDetail->qty = (int) $_POST['qty'];
+		$cartDetail->product_id = $_POST['product_id'];
+		$cartDetail->price = $_POST['price'];
+		if($cartDetail->save()){
+			$this->redirect(array('showCart'));
+		}
+
 		
+	}
+
+	public function actionShowCart($id=null){
+		if($id==null){
+			// search by session
+			$cart = Cart::model()->checkCartBySession();
+			echo Yii::app()->session->sessionID;
+			// dei();
+
+		}
+		else{
+			// search by id
+			$cart = Cart::model()->findByPk($id);
+		}
+
+
+		$cartDetailProvider = new CArrayDataProvider($cart->cartDetails,array());
+
+
+		$this->render('cartList',array('cart'=>$cart,'cartDetailProvider'=>$cartDetailProvider));
 	}
 
 

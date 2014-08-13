@@ -34,7 +34,8 @@ class Cart extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('code, user_id, sess_id', 'required'),
+			array('sess_id,state,type', 'required'),
+			// array('code','unique'),
 			array('user_id, type, state, pass_scheduled', 'numerical', 'integerOnly'=>true),
 			array('code', 'length', 'max'=>20),
 			array('sess_id', 'length', 'max'=>255),
@@ -113,5 +114,23 @@ class Cart extends CActiveRecord
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
+	}
+
+	public function checkCartBySession()
+	{
+		return self::findByAttributes(array('sess_id'=>Yii::app()->session->sessionID));
+	}
+
+	public function startNewCart($type=1){
+		$model = new self;
+		$model->sess_id = Yii::app()->session->sessionID;
+		$model->type = $type;
+		$model->state = 0;
+		if($model->save()){
+			return $model;
+		}else{
+			return false;
+		}
+		
 	}
 }
