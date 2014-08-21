@@ -8,6 +8,8 @@
             'attributes' => array(
                 'name',
                 'price',
+                'description',
+                'review',
                 'tags',
 
             )
