@@ -71,10 +71,13 @@
                 
 
 
-                for($i=1; $i<$diff; $i++){ ?>
+                for($i=0; $i<($diff-1); $i++){ ?>
                 <tr>
                   <td>
-                    <?php echo $i; ?>
+                    <?php 
+                      $dates[$i] = date('Y-m-d',strtotime($open.'+'.$i.' day'));
+                      echo $dates[$i];
+                    ?>
                   </td>
 
                   <?php
@@ -82,9 +85,10 @@
                     $times = CJSON::decode($schedule_time);
                     foreach($times as $idx=>$time){
                       // echo $time.'<br/>';
+                      $check = Cart::model()->checkAvailableSchedule($dates[$i].' '.$time);
                       echo '<td>
                         <input type="radio" name="schedule" value="1"/> 
-                        <span class="red">No Available</span>
+                        '.($check ? '<span class="green">Available</span>':'<span class="red">Not Available</span>').'</span>
                       </td>';
                     }
                   }

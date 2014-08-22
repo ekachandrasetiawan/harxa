@@ -107,4 +107,6 @@ class Setting extends CActiveRecord
 
 		return $model;
 	}
+
+	
 }
