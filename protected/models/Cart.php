@@ -163,4 +163,14 @@ class Cart extends CActiveRecord
         
         return $count;
     }
+
+    public function checkAvailableSchedule($date){
+		$cart = Cart::model()->findByAttributes(array('pass_scheduled'=>$date));
+
+		if($cart){
+			return false;
+		}else{
+			return true;
+		}
+	}
 }
