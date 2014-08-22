@@ -89,5 +89,42 @@ class CartController extends Controller
 		$this->render('cartList',array('cart'=>$cart,'cartDetailProvider'=>$cartDetailProvider));
 	}
 
+	public function actionSelectSchedule()
+    {
+    	$data['setting'] = Setting::model()->getSchedule();
+
+    	foreach($data['setting']->settingDetails as $i=>$det)
+        {
+          if($det->param == 'open_start')
+          {
+            $data['open'] = $det->value;
+          }
+          elseif($det->param=='open_close')
+          {
+            $data['close'] = $det->value;
+          }
+          /*elseif($det->param=='schedule_time')
+          {
+            $times = $det->value;
+          }*/
+          else{
+            $data[$det->param] = $det->value;
+            // echo $det->param;
+          }
+          // echo 'a';
+        }
+        /*echo $open.'<br/>';
+        echo $close.'<br/>';*/
+        
+        $datetime1 = new DateTime($data['open']);
+        $datetime2 = new DateTime($data['close']);
+        $interval = $datetime1->diff($datetime2);
+        $data['diff'] = $interval->format('%a');
+        // echo $interval->format('%a');
+
+
+    	$this->render('selectSchedule',$data);
+    }
+
 
 }

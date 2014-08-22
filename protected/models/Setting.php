@@ -100,4 +100,11 @@ class Setting extends CActiveRecord
 	public function getCartMode(){
 		return SettingDetail::model()->getCartMode();
 	}
+
+	public function getSchedule()
+	{
+		$model = self::findByPk(2);
+
+		return $model;
+	}
 }
