@@ -406,3 +406,10 @@ input[type=submit]:hover{
   display: block;
   text-decoration: none;
 }
+.cart td{
+    padding: 1px !important;
+}
+.cart th {
+  font-size: 14px !important;
+
+}

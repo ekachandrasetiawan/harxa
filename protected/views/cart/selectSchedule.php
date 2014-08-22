@@ -4,21 +4,21 @@
     <div class="span3 progress">
       <h3>Checkout progress</h3>
       <ul class="rr">
-        <li>
-          <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'checkout')); ?>">Checkout method</a>
-        </li>
-        <li>
-          <a class="currentmethod" href="#">Time Schedule</a>
-        </li>
-        <li>
-          <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'shippingaddress')); ?>">Shipping address</a>
-        </li>
-        <li>
-          <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'shippingmethod')); ?>">Shipping method</a>
-        </li>
-        <li>
-          <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'paymentmethod')); ?>">Payment method</a>
-        </li>
+         <li>
+                <a href="<?php echo Yii::app()->createUrl('cart/checkOut'); ?>">Checkout method</a>
+              </li>
+              <li>
+                <a  class="currentmethod" href="#">Time Schedule</a>
+              </li>
+              <li>
+                <a  href="<?php echo Yii::app()->createUrl('cart/shippingAddress'); ?>">Shipping address</a>
+              </li>
+              <li>
+                <a  href="<?php echo Yii::app()->createUrl('cart/shippingMethod'); ?>">Shipping method</a>
+              </li>
+              <li>
+                <a href="<?php echo Yii::app()->createUrl('cart/paymentMethod'); ?>">Payment method</a>
+              </li>
       </ul>
     </div>
 
@@ -80,11 +80,12 @@
                   <?php
                   if(isset($schedule_time)){
                     $times = CJSON::decode($schedule_time);
+                    
                     foreach($times as $idx=>$time){
                       // echo $time.'<br/>';
                       echo '<td>
-                        <input type="radio" name="schedule" value="1"/> 
-                        <span class="red">No Available</span>
+                        <input type="radio" id="radio'.$i.$time.'" name="schedule" value="'.$i.'-'.$time.'"/> 
+                        <label for="radio'.$i.$time.'" style="display:block; line-height: 40px;"> Available</label>
                       </td>';
                     }
                   }

@@ -8,7 +8,7 @@
                 <a href="<?php echo Yii::app()->createUrl('cart/checkOut'); ?>">Checkout method</a>
               </li>
               <li>
-                <a  href="<?php echo Yii::app()->createUrl('cart/timeSchedule'); ?>">Time Schedule</a>
+                <a  href="<?php echo Yii::app()->createUrl('cart/selectSchedule'); ?>">Time Schedule</a>
               </li>
               <li>
                 <a  href="<?php echo Yii::app()->createUrl('cart/shippingAddress'); ?>">Shipping address</a>
