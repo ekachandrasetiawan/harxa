@@ -67,6 +67,10 @@
 
 
                 <?php
+
+                
+
+
                 for($i=0; $i<($diff-1); $i++){ ?>
                 <tr>
                   <td>
@@ -84,8 +88,10 @@
                       // echo $time.'<br/>';
                       $check = Cart::model()->checkAvailableSchedule($dates[$i].' '.$time);
                       echo '<td>
-                        <input type="radio" name="schedule" value="1"/> 
-                        '.($check ? '<span class="green">Available</span>':'<span class="red">Not Available</span>').'</span>
+                        <input type="radio" id="radio'.$i.$time.'" name="schedule" value="'.$i.'-'.$time.'"/> 
+                        
+                        
+                        '.($check ? '<label for="radio'.$i.$time.'" style="display:block; line-height: 40px;"> Available</label>':'<label for="radio'.$i.$time.'" style="display:block; line-height: 40px;"><span class="red">Not Available</span></label>').'</span>
 
                       </td>';
                     }
