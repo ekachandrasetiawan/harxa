@@ -73,7 +73,7 @@ class CartController extends Controller
 		if($id==null){
 			// search by session
 			$cart = Cart::model()->checkCartBySession();
-			echo Yii::app()->session->sessionID;
+			//echo Yii::app()->session->sessionID;
 			// dei();
 
 		}

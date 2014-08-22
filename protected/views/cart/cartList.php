@@ -97,9 +97,6 @@
         <!-- </table> -->
 
         
-
-
-        
           <div class="row-fluid checkout">
           <div class="span12">
              <a href="#" class=" btn" style="float: left;"><span class="gradient">Back Up</span></a>
