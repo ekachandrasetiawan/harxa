@@ -118,9 +118,10 @@ class Cart extends CActiveRecord
 		return parent::model($className);
 	}
 
-	public function checkCartBySession()
+	public function checkCartBySession($sessID=null)
 	{
-		return self::findByAttributes(array('sess_id'=>Yii::app()->session->sessionID));
+	   if(!$sessID) $sessID = Yii::app()->session->sessionID;
+		return self::findByAttributes(array('sess_id'=>$sessID));
 	}
 
 	public function startNewCart($type=1){
@@ -150,4 +151,16 @@ class Cart extends CActiveRecord
 
 		return $subTotal;
 	}
+    
+    public function countCartDetail($sessID=null){
+        if(!$sessID) $sessID = Yii::app()->session->sessionID;
+        $cart = $this->checkCartBySession($sessID);
+        if($cart){
+            $count = count($cart->cartDetails);
+        }else{
+            $count = 0;
+        }
+        
+        return $count;
+    }
 }

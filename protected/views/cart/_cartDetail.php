@@ -34,7 +34,7 @@
   </td>
   <td class="dark">
 
-    <span class="currency">Rp.</span><span class="value"><?php echo $data->totalPriceLine; ?></span>
+    <span class="currency">Rp.</span><span class="value"><?php echo Formatter::format_rupiah($data->totalPriceLine); ?></span>
 
   </td>
   <td class="action">

@@ -70,7 +70,7 @@
                   </a>
                 </li>
                 <li>
-                  <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'checkout')); ?>">
+                  <a href="<?php echo Yii::app()->createUrl('cart/checkOut'); ?>">
                     <span class="ir icon checkout"></span>
                     <span>Checkout</span>
                   </a>
@@ -126,9 +126,12 @@
           <div class="span4">
             <div class="shopping-cart">
               <span class="icon ir">Cart</span>
-              <span class="text"><a href="<?php echo Yii::app()->createUrl('cart/showCart'); ?>"><span class="title">Shopping Cart</span></a> (<span>0</span> items) - </span>
-              <span class="price"><span>$</span><span>0.00</span></span>
-            </div>
+              <span class="text">
+              <?php 
+                
+               ?>
+              <a href="<?php echo Yii::app()->createUrl('cart/showCart'); ?>"><span class="title">Shopping Cart</span></a> (<span><?php echo Cart::model()->countCartDetail(); ?></span> items)</span>
+               </div>
           </div>
         </div>  
 

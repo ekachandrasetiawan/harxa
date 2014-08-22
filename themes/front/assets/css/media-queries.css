@@ -10,7 +10,7 @@
   padding-top: 5px;
 }
 .lt-ie9 .subscribe-form input[type="text"] {
-  width: 70%;
+  width: 60%;
 }
 .lt-ie9 .subscribe-form input[type="submit"] {
   width: 20%;
@@ -101,7 +101,7 @@
     width: 16.6666%;
   }
   .subscribe-form input[type="text"] {
-    width: 70%;
+    width: 60%;
   }
   .subscribe-form input[type="submit"] {
     width: 20%;

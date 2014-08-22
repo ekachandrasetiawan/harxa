@@ -386,3 +386,23 @@ input[type=submit]:hover{
 .cart input{
     width: 25px !important;
 }
+.checkout .checkout-list .left-col input {
+  background: none repeat scroll 0 0 #eee;
+  border: 1px solid #e2e2e2;
+  color: #989898;
+  font-family: "PT Serif",serif;
+  font-size: 11px;
+  font-style: italic;
+  height: 2.8em;
+  line-height: 2.8em;
+  padding: 1px 10px 0;
+  width: 240px;
+}
+.checkout .checkout-list .left-col li {
+  margin-bottom: 10px;
+}
+.checkout .checkout-list .left-col a.forgot, .checkout .checkout-list .left-col a.forgot:visited {
+  color: #989898;
+  display: block;
+  text-decoration: none;
+}

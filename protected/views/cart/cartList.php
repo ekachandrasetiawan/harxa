@@ -68,7 +68,7 @@
                     Total products (tax incl.):
                   </td>
                   <td colspan="2" class="price rigth">
-                     <span class="currency">Rp.</span><span class="value">'.$cart->subTotal.'</span>
+                     <span class="currency">Rp.</span><span class="value">'.Formatter::format_rupiah($cart->subTotal).'</span>
                   </td>
                 </tr>
                 <tr>
@@ -76,7 +76,7 @@
                     Shipping:
                   </td>
                   <td colspan="2" class="price rigth">
-                     <span class="currency">Rp.</span><span class="value">10.000</span>
+                     <span class="currency">Rp.</span><span class="value">0</span>
                   </td>
                 </tr>
                 <tr>
@@ -92,15 +92,11 @@
             ',
           ));
           ?>
-          
-         
         <!-- </table> -->
-
-        
           <div class="row-fluid checkout">
           <div class="span12">
              <a href="#" class=" btn" style="float: left;"><span class="gradient">Back Up</span></a>
-            <a href="#" class=" btn" style="float: right;"><span class="gradient">Checkout</span></a>
+            <a href="<?php echo Yii::app()->createUrl('cart/checkOut'); ?>" class=" btn" style="float: right;"><span class="gradient">Checkout</span></a>
           </div>
         </div>
         

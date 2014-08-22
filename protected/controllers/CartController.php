@@ -33,6 +33,26 @@ class CartController extends Controller
 		);
 	}
 	*/
+    
+    public function actionCheckOut(){
+        $this->render('checkout');
+    }
+    
+    public function actionTimeSchedule(){
+        $this->render('timeschedule');
+    }
+    
+    public function actionShippingAddress(){
+        $this->render('shippingaddress');
+    }
+    
+    public function actionShippingMethod(){
+       $this->render('shippingmethod'); 
+    }
+    
+    public function actionPaymentMethod(){
+        $this->render('paymentmethod');
+    }
 	public function actionAddToCart(){
 		// check if cart compare on session
 		$check = Cart::model()->checkCartBySession();
