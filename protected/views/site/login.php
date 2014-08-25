@@ -21,19 +21,19 @@
             <h3>Account</h3>
             <ul class="rr">
               <li>
-                <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'login')); ?>">Login</a>
+                <a href="<?php echo Yii::app()->createUrl('site/login'); ?>">Login</a>
               </li>
               <li>
-                <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'register')); ?>">Register</a>
+                <a href="<?php echo Yii::app()->createUrl('site/register'); ?>">Register</a>
               </li>
               <li>
-                <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'account')); ?>">My Account</a>
+                <a href="<?php echo Yii::app()->createUrl('site/myaccount'); ?>">My Account</a>
               </li>
               <li>
-                <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'OrderHistory')); ?>">Order History</a>
+                <a href="<?php echo Yii::app()->createUrl('site/orderhistory'); ?>">Order History</a>
               </li>
               <li>
-                <a href="<?php echo Yii::app()->createUrl('site/page',array('view'=>'newslatter')); ?>">Newslatter</a>
+                <a href="<?php echo Yii::app()->createUrl('site/newslatter'); ?>">Newslatter</a>
               </li>
             </ul>
           </div>

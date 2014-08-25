@@ -172,7 +172,14 @@ class SiteController extends Controller
        if(!$models) throw new CHttpException(404,'Page Not Found');
        $this->render('trunk/index',array('models'=>$models));           
     }
-    
+    public function actionRegister()
+    {
+        $this->render('account/register');
+    }
+     public function actionMyaccount()
+    {
+        $this->render('account/myaccount');
+    }
     public function actionGallery(){
         $models = Gallery::model()->findAll();
 
