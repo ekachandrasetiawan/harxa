@@ -20,12 +20,12 @@ $this->breadcrumbs=array(
 					array(
 						'name'=>'last_name'
 					),
-					array(
+					/*array(
 						'name'=>'birth_place'
 					),
 					array(
 						'name'=>'birth_date'
-					),
+					),*/
 					/*
 					array(
 						'name'=>'delivery_addr'
@@ -46,43 +46,70 @@ $this->breadcrumbs=array(
 	</div>
 </div>
 <div id="accountArea" style="clear:both;">
-<h1><?php echo UserModule::t('Your Account'); ?></h1>
+	<h1><?php echo UserModule::t('Your Account'); ?></h1>
 
-<?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
-<div class="success">
-	<?php echo Yii::app()->user->getFlash('profileMessage'); ?>
-</div>
-<?php endif; ?>
+	<?php if(Yii::app()->user->hasFlash('profileMessage')): ?>
+	<div class="success">
+		<?php echo Yii::app()->user->getFlash('profileMessage'); ?>
+	</div>
+	<?php endif; ?>
 
-<?php
-    $this->widget(
-	    'booster.widgets.TbEditableDetailView',
-	    array(
-		    // 'id' => 'region-details',
-		    'data' => $model,
-		    // 'type'=>'checklist',
-		    // 'url' => $endpoint,
-		    'url'=>array(),
-		    'attributes' => array(
-			    array(
-			    	'name'=>'username',
-			    	'editable'=>array('type'=>'text')
-			    ),
-			    array(
-			    	'name'=>'email',
-			    	'editable'=>array('type'=>'text')
-			    ),
-			    array(
-			    	'name'=>'superuser',
-			    	'editable'=>array('type'=>'select','source'=>array('1'=>'Yes','0'=>'No'))
-			    ),
-			    array(
-			    	'name'=>'status',
-			    	'label'=>'Active',
-			    	'editable'=>array('type'=>'select','source'=>array('1'=>'Yes','0'=>'No'))
+	<?php
+	    $this->widget(
+		    'booster.widgets.TbEditableDetailView',
+		    array(
+			    // 'id' => 'region-details',
+			    'data' => $model,
+			    // 'type'=>'checklist',
+			    // 'url' => $endpoint,
+			    'url'=>array(),
+			    'attributes' => array(
+				    array(
+				    	'name'=>'username',
+				    	'editable'=>array('type'=>'text')
+				    ),
+				    array(
+				    	'name'=>'email',
+				    	'editable'=>array('type'=>'text')
+				    ),
+				    array(
+				    	'name'=>'superuser',
+				    	'editable'=>array('type'=>'select','source'=>array('1'=>'Yes','0'=>'No'))
+				    ),
+				    array(
+				    	'name'=>'status',
+				    	'label'=>'Active',
+				    	'editable'=>array('type'=>'select','source'=>array('1'=>'Yes','0'=>'No'))
+				    )
 			    )
 		    )
-	    )
-    );
-?>
+	    );
+	?>
+</div>
+
+
+<div id="shippingAddrs" style="clear:both;">
+	<h1>Shipping Address</h1>
+	<?php
+	$this->widget('booster.widgets.TbExtendedGridView',array(
+		'id'=>'shippingAddresses',
+		'dataProvider'=>new CArrayDataProvider($model->shippingAddresses,array('keyField'=>'id')),
+		'columns'=>array(
+			// 'id',
+			'title',
+			'address',
+			// 'city',
+			// 'state',
+			// 'country',
+			'zip_code',
+			'phone',
+			array(
+				'name'=>'primary',
+				'value'=>function($data){
+					return ($data->primary==1?'Yes':'No');
+				}
+			),
+		)
+	));
+	?>
 </div>

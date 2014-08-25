@@ -48,6 +48,9 @@ array('label'=>'Manage Setting','url'=>array('admin')),
 			),
 			array(
 				'class'=>'booster.widgets.TbButtonColumn',
+				'template'=>'{update}{delete}',
+				'updateButtonUrl'=>function($data){return $this->createUrl('/manager/settingDetail/update',array('id'=>$data->id));},
+				'deleteButtonUrl'=>function($data){return $this->createUrl('/manager/settingDetail/update',array('id'=>$data->id));}
 			),
 		),
 	));

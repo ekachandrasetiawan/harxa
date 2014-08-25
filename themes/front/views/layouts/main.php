@@ -57,12 +57,18 @@
             </div>
             <div class="span9 menu clearfix">
               <ul class="clearfix rr">
-                <li>
-                  <a href="#">
-                    <span class="ir icon my-account"></span>
-                    <span>My account</span>
-                  </a>
-                </li>
+                <?php
+                if(!Yii::app()->user->isGuest):
+                  ?>
+                  <li>
+                    <a href="<?php echo Yii::app()->createUrl('usr/index'); ?>">
+                      <span class="ir icon my-account"></span>
+                      <span>My account</span>
+                    </a>
+                  </li>
+                  <?php
+                endif;
+                ?>
                 <li>
                   <a href="#">
                     <span class="ir icon my-wishlist"></span>
@@ -79,7 +85,7 @@
                   if(Yii::app()->user->isGuest):
                   ?>
                   <li>
-                    <a href="<?php echo Yii::app()->createUrl('user/login'); ?>">
+                    <a href="<?php echo Yii::app()->createUrl('site/login'); ?>">
                       <span class="ir icon log-in"></span>
                       <span>Log in</span>
                     </a>

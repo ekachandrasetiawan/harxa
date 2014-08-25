@@ -80,12 +80,12 @@
                         <ul class="rr">
                           <li>
                             <label>
-                              <input type="text" name="<?php echo CHtml::activeName($model,'username'); ?>" placeholder="Your account..."/>
+                              <input type="text" name="" placeholder="Your account..."/>
                             </label>
                           </li>
                           <li>
                             <label>
-                              <input type="password" name="<?php echo CHtml::activeName($model,'password'); ?>" placeholder="Your password..."/>
+                              <input type="password" name="" placeholder="Your password..."/>
                             </label>
                           </li>
                         </ul>

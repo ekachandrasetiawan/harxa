@@ -68,7 +68,7 @@
                     Total products (tax incl.):
                   </td>
                   <td colspan="2" class="price rigth">
-                     <span class="currency">Rp.</span><span class="value">'.Formatter::format_rupiah($cart->subTotal).'</span>
+                     <span class="currency">Rp.</span><span class="value">'.Formatter::format_rupiah((isset($cart->subTotal) ? $cart->subTotal:0)).'</span>
                   </td>
                 </tr>
                 <tr>

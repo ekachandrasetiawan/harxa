@@ -95,14 +95,30 @@ class SettingDetailController extends Controller
 	{
 		$model=$this->loadModel($id);
 
-	// Uncomment the following line if AJAX validation is needed
-	// $this->performAjaxValidation($model);
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
 
 		if(isset($_POST['SettingDetail']))
 		{
 			$model->attributes=$_POST['SettingDetail'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
+		}
+
+		$val = CJSON::decode($model->value);
+		if(is_array($val))
+		{
+
+			$newVal = '';
+			foreach($val as $i=>$v):
+				if($newVal!='')$newVal	.='|';
+				$newVal .= $v;
+				// echo $v.'<br/>';
+				// echo $i;
+			endforeach;
+			$model->value = trim($newVal);
+			// echo $newVal;
 		}
 
 		$this->render('update',array(

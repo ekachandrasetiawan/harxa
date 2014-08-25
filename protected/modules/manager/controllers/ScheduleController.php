@@ -41,6 +41,11 @@ class ScheduleController extends Controller
 	    Yii::app()->end();
 	}
 
+
+	public function actionIndex(){
+		$this->render('index');
+	}
+
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

@@ -173,4 +173,17 @@ class Cart extends CActiveRecord
 			return true;
 		}
 	}
+
+
+	public function beforeSave()
+	{
+		$this->sess_id = Yii::app()->session->sessionID;
+		return true;
+	}
+
+	public function updateCartSession($id)
+	{
+		$cart = self::findByPk($id);
+		$cart->sess_id = Yii::app()->session->sessionID;
+	}
 }

@@ -11,6 +11,7 @@ class LoginController extends Controller
 	{
 		if (Yii::app()->user->isGuest) {
 			$model=new UserLogin;
+			
 			// collect user input data
 			if(isset($_POST['UserLogin']))
 			{
@@ -18,7 +19,12 @@ class LoginController extends Controller
 				// die('aa');
 				$model->attributes=$_POST['UserLogin'];
 				// validate user input and redirect to previous page if valid
+
+				
+
 				if($model->validate()) {
+					
+
 					$this->lastViset();
 					// if (Yii::app()->user->returnUrl=='/index.php')
 					if(preg_match('/\/index\.php/', Yii::app()->user->returnUrl))

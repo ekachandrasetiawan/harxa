@@ -32,6 +32,7 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
         $models = Pages::model()->findByPk('1');
+        
         $this->render('index',array('models'=>$models));
 		//$this->render('index');
 	}
@@ -101,6 +102,9 @@ class SiteController extends Controller
 
 
 		$model=new UserLogin;
+		$cart = Cart::model()->checkCartBySession();
+		// var_dump($cart);
+		// die();
 		if (Yii::app()->user->isGuest) {
 			
 			// collect user input data
@@ -111,6 +115,12 @@ class SiteController extends Controller
 				$model->attributes=$_POST['UserLogin'];
 				// validate user input and redirect to previous page if valid
 				if($model->validate()) {
+					// UPDATE CART
+					if($cart):
+						$cart->sess_id = Yii::app()->session->sessionID;
+						$cart->save();
+					endif;
+					
 					$this->lastViset();
 					// if (Yii::app()->user->returnUrl=='/index.php')
 					if(preg_match('/\/index\.php/', Yii::app()->user->returnUrl))

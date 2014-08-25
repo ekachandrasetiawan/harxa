@@ -34,7 +34,17 @@ class CartController extends Controller
 	}
 	*/
     
-    public function actionCheckOut(){
+    public function actionCheckOut()
+    {
+    	$cart = Cart::model()->checkCartBySession();
+    	if (Yii::app()->user->isGuest) {
+			// $model=new UserLogin;
+			Yii::app()->user->returnUrl = $this->createUrl('cart/checkOut');
+			$this->redirect(array('site/login'));
+		}
+    	/*if($cart->state == 0)
+    		$cart->state = 1;
+    		$cart->update();*/
         $this->render('checkout');
     }
     
@@ -94,16 +104,30 @@ class CartController extends Controller
 			// search by session
 			$cart = Cart::model()->checkCartBySession();
 			//echo Yii::app()->session->sessionID;
-			// dei();
+			if($cart==null){
+				/*$cart = new Cart;
+				$cart->type = 1;
+				$cart->state = 0;
+				$cart->save();*/
+				$cart = Cart::model()->startNewCart();
+			}
+			// var_dump($cart);
 
 		}
 		else{
 			// search by id
 			$cart = Cart::model()->findByPk($id);
+
 		}
 
 
-		$cartDetailProvider = new CArrayDataProvider($cart->cartDetails,array());
+		// die();
+
+		if(isset($cart->cartDetails)):
+			$cartDetailProvider = new CArrayDataProvider($cart->cartDetails,array());
+		else:
+			$cartDetailProvider = new CArrayDataProvider(CartDetail::model()->findAllByAttributes(array('cart_id'=>$cart->id)));
+		endif;
 
 
 		$this->render('cartList',array('cart'=>$cart,'cartDetailProvider'=>$cartDetailProvider));
@@ -141,6 +165,11 @@ class CartController extends Controller
         $interval = $datetime1->diff($datetime2);
         $data['diff'] = $interval->format('%a');
         // echo $interval->format('%a');
+
+        if(isset($_POST)){
+        	// var_dump($_POST);
+        	// DISINI ACTIONNYA
+        }
 
 
     	$this->render('selectSchedule',$data);

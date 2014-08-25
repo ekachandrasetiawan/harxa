@@ -10,8 +10,8 @@ class m140706_152930_cart extends CDbMigration
 	{
 		$this->createTable($this->cartName,array(
 			'id'=>'pk',
-			'code'=>'varchar(20) not null',
-			'user_id'=>'integer not null',
+			'code'=>'varchar(20) null',
+			'user_id'=>'integer null',
 			'sess_id'=>'string not null',
 			'type'=>'smallint not null default 1',
 			'state'=>'smallint not null default 0',

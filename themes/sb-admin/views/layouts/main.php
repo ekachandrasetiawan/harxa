@@ -15,7 +15,7 @@
   <link href="<?php echo Yii::app()->theme->baseUrl; ?>/css/sb-admin.css" rel="stylesheet">
   <link rel="stylesheet" href="<?php echo Yii::app()->theme->baseUrl; ?>/font-awesome/css/font-awesome.min.css">
   <!-- Page Specific CSS -->
-  <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+  <!-- <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css"> -->
 </head>
 
 <body>
@@ -46,7 +46,7 @@
           <li><a href="bootstrap-elements.html"><i class="fa fa-desktop"></i> Bootstrap Elements</a></li>
           <li><a href="bootstrap-grid.html"><i class="fa fa-wrench"></i> Bootstrap Grid</a></li> -->
           <li><a href="<?php echo Yii::app()->createUrl('/manager/pages/admin') ?>"><i class="fa fa-wrench"></i>Pages</a></li>
-          <li><a href="<?php echo Yii::app()->createUrl('/manager/schedule/admin') ?>"><i class="fa fa-wrench"></i>Schedule</a></li>
+          <!-- <li><a href="<?php echo Yii::app()->createUrl('/manager/schedule/admin') ?>"><i class="fa fa-wrench"></i>Schedule</a></li> -->
           <li><a href="<?php echo Yii::app()->createUrl('/manager/gallery/admin') ?>"><i class="fa fa-wrench"></i>Gallery</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/slider/admin') ?>"><i class="fa fa-wrench"></i>Slider</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/manager/cart/admin') ?>"><i class="fa fa-user"></i>Cart History</a></li>
@@ -54,14 +54,33 @@
           <li><a href="<?php echo Yii::app()->createUrl('/user/profile'); ?>"><i class="fa fa-user"></i> My Profile</a></li>
           <li><a href="<?php echo Yii::app()->createUrl('/user/user') ?>"><i class="fa fa-user"></i> Users</a></li>
           
-          <li><a href="<?php echo Yii::app()->createUrl('/manager/setting/admin') ?>"><i class="fa fa-user"></i> Settings</a></li>
-          <li class="dropdown">
+          <!-- <li><a href="<?php echo Yii::app()->createUrl('/manager/setting/admin') ?>"><i class="fa fa-user"></i> Settings</a></li> -->
+          <!-- <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Dropdown <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><a href="#">Dropdown Item</a></li>
               <li><a href="#">Another Item</a></li>
               <li><a href="#">Third Item</a></li>
               <li><a href="#">Last Item</a></li>
+            </ul>
+          </li> -->
+
+
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-caret-square-o-down"></i> Settings <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <?php
+              $settings = Setting::model()->findAll();
+              foreach($settings as $set):
+              ?>
+              <li>
+                <a href="<?php echo $this->createUrl('/manager/setting/view',array('id'=>$set->id)); ?>"><?php echo CHtml::encode($set->name); ?></a>
+              </li>
+              <?php
+              endforeach;
+              ?>
+              <!-- <li><a href="#">Time</a></li> -->
             </ul>
           </li>
         </ul>

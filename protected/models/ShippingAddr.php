@@ -1,27 +1,31 @@
 <?php
 
 /**
- * This is the model class for table "{{setting_detail}}".
+ * This is the model class for table "{{shipping_addr}}".
  *
- * The followings are the available columns in table '{{setting_detail}}':
+ * The followings are the available columns in table '{{shipping_addr}}':
  * @property integer $id
- * @property integer $setting_id
- * @property string $param
- * @property string $value
+ * @property integer $user_id
+ * @property string $title
+ * @property string $address
+ * @property string $city
+ * @property string $state
+ * @property string $country
+ * @property string $zip_code
+ * @property string $phone
+ * @property integer $primary
  *
  * The followings are the available model relations:
- * @property Setting $setting
+ * @property Users $user
  */
-class SettingDetail extends CActiveRecord
+class ShippingAddr extends CActiveRecord
 {
-	const CARTMODE_NORMAL="normal";
-	const CARTMODE_TRUNK="trunk";
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{setting_detail}}';
+		return '{{shipping_addr}}';
 	}
 
 	/**
@@ -32,55 +36,13 @@ class SettingDetail extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('setting_id', 'required'),
-			array('setting_id', 'numerical', 'integerOnly'=>true),
-			array('param', 'length', 'max'=>255),
-			array('value', 'safe'),
-			array('value','valueHandler'),
+			array('user_id, address, city, state', 'required'),
+			array('user_id, primary', 'numerical', 'integerOnly'=>true),
+			array('title, city, state, country, zip_code, phone', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, setting_id, param, value', 'safe', 'on'=>'search'),
+			array('id, user_id, title, address, city, state, country, zip_code, phone, primary', 'safe', 'on'=>'search'),
 		);
-	}
-
-	public function valueHandler($attribute,$params)
-	{
-		$array=false;
-		$return=false;
-
-
-		// check null first
-		if(!$this->value){
-			$this->addError($attribute,'Value can\'t be blank!');
-			$return = false;
-		}else{
-			$exp = explode('|',$this->value);
-			
-			if(is_array($exp)){
-				$array = true;
-				$this->value = $exp;
-			}
-
-
-			if($array){
-				// add validation
-				// var_dump(count($array));
-				if(count($array)==0){
-					$return =false;
-					$this->addError($attribute,'Value can\'t be blank!');
-				}elseif(count($array)==1){
-					$this->value = $exp[0];
-				}
-				else{
-					$this->value = CJSON::encode($this->value);
-					$return =true;
-				}
-			}else{
-				$return = true;
-			}
-		}
-
-		return $return;
 	}
 
 	/**
@@ -91,7 +53,7 @@ class SettingDetail extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'setting' => array(self::BELONGS_TO, 'Setting', 'setting_id'),
+			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
 		);
 	}
 
@@ -102,9 +64,15 @@ class SettingDetail extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'setting_id' => 'Setting',
-			'param' => 'Param',
-			'value' => 'Value',
+			'user_id' => 'User',
+			'title' => 'Title',
+			'address' => 'Address',
+			'city' => 'City',
+			'state' => 'State',
+			'country' => 'Country',
+			'zip_code' => 'Zip Code',
+			'phone' => 'Phone',
+			'primary' => 'Primary',
 		);
 	}
 
@@ -127,9 +95,15 @@ class SettingDetail extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('setting_id',$this->setting_id);
-		$criteria->compare('param',$this->param,true);
-		$criteria->compare('value',$this->value,true);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('title',$this->title,true);
+		$criteria->compare('address',$this->address,true);
+		$criteria->compare('city',$this->city,true);
+		$criteria->compare('state',$this->state,true);
+		$criteria->compare('country',$this->country,true);
+		$criteria->compare('zip_code',$this->zip_code,true);
+		$criteria->compare('phone',$this->phone,true);
+		$criteria->compare('primary',$this->primary);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -140,22 +114,10 @@ class SettingDetail extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return SettingDetail the static model class
+	 * @return ShippingAddr the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-	public function getCartMode(){
-		// CART MODEIS ALWAYS HAVE ID "1"
-		return self::findByPk(1);
-	}
-	
-
-	public function setCartMode($to){
-		$mode = self::getCartMode();
-		$mode->value = $to;
-		$mode->save();
 	}
 }

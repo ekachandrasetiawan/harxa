@@ -28,65 +28,74 @@
               <li class="current">
                 <h6>Checkout method</h6>
                 <div class="row">
-                  <div class="span9 content-wrapper clearfix">
-                    <div class="left-col">
-                  
-                      <h6>NEW CUSTOMER</h6>
-                      <p>
-                        Register New Account
-                      </p>
-                      
-                      <form action="#" method="post" id="form-2">
-                        <ul class="rr">
-                          <li>
-                            <label>
-                              <input type="text" name="email" placeholder="Your Email..."/>
-                            </label>
-                          </li>
-                          <li>
-                            <label>
-                              <input type="password" name="password" placeholder="Your password..."/>
-                            </label>
-                          </li>
-                        </ul>
-                        <a href="#" class="forgot">Forgot your password?</a>
-                        
-                        <a href="#" class="btn secondary" onclick="document.forms['form-2'].submit()">
-                          <span class="gradient">Register</span>
-                        </a>
-                      </form>
-                      
+                  <?php
+                  if(Yii::app()->user->isGuest):
+                    ?>
+                    <div class="span9 content-wrapper clearfix">
+                      <div class="left-col">
                     
+                        <h6>NEW CUSTOMER</h6>
+                        <p>
+                          Register New Account
+                        </p>
+                        
+                        <form action="#" method="post" id="form-2">
+                          <ul class="rr">
+                            <li>
+                              <label>
+                                <input type="text" name="email" placeholder="Your Email..."/>
+                              </label>
+                            </li>
+                            <li>
+                              <label>
+                                <input type="password" name="password" placeholder="Your password..."/>
+                              </label>
+                            </li>
+                          </ul>
+                          <a href="#" class="forgot">Forgot your password?</a>
+                          
+                          <a href="#" class="btn secondary" onclick="document.forms['form-2'].submit()">
+                            <span class="gradient">Register</span>
+                          </a>
+                        </form>
+                        
+                      
+                      </div>
+                      <div class="right-col">
+                      
+                        <h6>Login</h6>
+                        <p>
+                          Already registered
+                        </p>
+                        
+                        <form action="#" method="post" id="form-2">
+                          <ul class="rr">
+                            <li>
+                              <label>
+                                <input type="text" name="account" placeholder="Your account..."/>
+                              </label>
+                            </li>
+                            <li>
+                              <label>
+                                <input type="password" name="password" placeholder="Your password..."/>
+                              </label>
+                            </li>
+                          </ul>
+                          
+                          <a href="#" class="forgot">Forgot your password?</a>
+                          <a href="#" class="btn secondary" onclick="document.forms['form-2'].submit()">
+                            <span class="gradient">Login</span>
+                          </a>
+                        </form>
+                      
+                      </div>  
                     </div>
-                    <div class="right-col">
-                    
-                      <h6>Login</h6>
-                      <p>
-                        Already registered
-                      </p>
-                      
-                      <form action="#" method="post" id="form-2">
-                        <ul class="rr">
-                          <li>
-                            <label>
-                              <input type="text" name="account" placeholder="Your account..."/>
-                            </label>
-                          </li>
-                          <li>
-                            <label>
-                              <input type="password" name="password" placeholder="Your password..."/>
-                            </label>
-                          </li>
-                        </ul>
-                        
-                        <a href="#" class="forgot">Forgot your password?</a>
-                        <a href="#" class="btn secondary" onclick="document.forms['form-2'].submit()">
-                          <span class="gradient">Login</span>
-                        </a>
-                      </form>
-                    
-                    </div>  
-                  </div>                      
+                    <?php
+                  else:
+                    echo 'Youre Loged In As '.Yii::app()->user->getName().'<br/>';
+                    echo '<a href="'.$this->createUrl('cart/selectSchedule').'">Next</a>';
+                  endif;
+                  ?>
                 </div>
               </li>
               <li>
