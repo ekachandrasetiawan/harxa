@@ -36,9 +36,10 @@ class ShippingAddr extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, address, city, state', 'required'),
+			array('address, city, title', 'required'),
 			array('user_id, primary', 'numerical', 'integerOnly'=>true),
 			array('title, city, state, country, zip_code, phone', 'length', 'max'=>255),
+			array('user_id','default','value'=>Yii::app()->user->getID()),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, user_id, title, address, city, state, country, zip_code, phone, primary', 'safe', 'on'=>'search'),

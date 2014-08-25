@@ -43,7 +43,7 @@
 
 
     		<div class="span9 checkout-list">
-    			<h3>Add NewShipping Address</h3>
+    			<h3>Update NewShipping Address</h3>
     			<?php
                 $this->renderPartial('_shippingForm',array('model'=>$model));
                 ?>

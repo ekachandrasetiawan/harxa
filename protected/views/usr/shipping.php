@@ -70,8 +70,8 @@
 										<td><?php echo CHtml::encode($data->state); ?></td>
 										<td><?php echo CHtml::encode($data->country); ?></td>
 										<td>
-											<a href="<?php echo $this->createUrl('usr/updateShipping',array('id'=>$data->id)); ?>">Edit</a>
-											<a href="<?php echo $this->createUrl('usr/updateShipping',array('id'=>$data->id)); ?>">Delete</a>
+											<a href="<?php echo $this->createUrl('usr/updateShippingAddr',array('id'=>$data->id)); ?>">Edit</a>
+											<a href="<?php echo $this->createUrl('usr/deleteShippingAddr',array('id'=>$data->id)); ?>">Delete</a>
 										</td>
 									</tr>
 									<?php

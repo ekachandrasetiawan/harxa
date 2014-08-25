@@ -26,6 +26,31 @@ class UsrController extends Controller
 		$this->render('createShipping',array('model'=>$model));
 	}
 
+	public function actionUpdateShippingAddr($id){
+		$model = ShippingAddr::model()->findByPk($id);
+		if(!$model) throw new CHttpException(404,'Data Not Found');
+		if(isset($_POST['ShippingAddr'])){
+			$model->attributes = $_POST['ShippingAddr'];
+			if($model->save()){
+				$this->redirect(array('shipping'));
+			}
+		}
+
+
+		$this->render('updateShippingAddr',array('model'=>$model));
+	}
+
+
+	public function actionGetCity($term){
+
+		$ongkir = Ongkir::getCity($term);
+		$ret = array();
+		if($ongkir){
+			echo $ongkir;
+		}
+		// var_dump($ongkir);
+	}
+
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()

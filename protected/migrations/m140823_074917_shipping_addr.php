@@ -10,7 +10,7 @@ class m140823_074917_shipping_addr extends CDbMigration
 			'title'=>'string',
 			'address'=>'text not null',
 			'city'=>'string not null',
-			'state'=>'string not null',
+			'state'=>'string null',
 			'country'=>'string null',
 			'zip_code'=>'string null',
 			'phone'=>'string',
