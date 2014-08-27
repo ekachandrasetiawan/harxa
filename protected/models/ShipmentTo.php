@@ -1,31 +1,30 @@
 <?php
 
 /**
- * This is the model class for table "{{shipping_addr}}".
+ * This is the model class for table "{{shipment_to}}".
  *
- * The followings are the available columns in table '{{shipping_addr}}':
+ * The followings are the available columns in table '{{shipment_to}}':
  * @property integer $id
- * @property integer $user_id
- * @property string $title
+ * @property integer $cart_id
+ * @property integer $sex
+ * @property string $person_name
+ * @property integer $shipping_addr_id
  * @property string $address
  * @property string $city
- * @property string $state
- * @property string $country
  * @property string $zip_code
  * @property string $phone
- * @property integer $primary
  *
  * The followings are the available model relations:
- * @property Users $user
+ * @property ShippingAddr $shippingAddr
  */
-class ShippingAddr extends CActiveRecord
+class ShipmentTo extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return '{{shipping_addr}}';
+		return '{{shipment_to}}';
 	}
 
 	/**
@@ -36,13 +35,12 @@ class ShippingAddr extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('address, city, title', 'required'),
-			array('user_id, primary', 'numerical', 'integerOnly'=>true),
-			array('title, city, state, country, zip_code, phone', 'length', 'max'=>255),
-			array('user_id','default','value'=>Yii::app()->user->getID()),
+			array('cart_id, sex, person_name, address, city', 'required'),
+			array('cart_id, sex, shipping_addr_id', 'numerical', 'integerOnly'=>true),
+			array('person_name, city, zip_code, phone', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, user_id, title, address, city, state, country, zip_code, phone, primary', 'safe', 'on'=>'search'),
+			array('id, cart_id, sex, person_name, shipping_addr_id, address, city, zip_code, phone', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,7 +52,7 @@ class ShippingAddr extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
+			'shippingAddr' => array(self::BELONGS_TO, 'ShippingAddr', 'shipping_addr_id'),
 		);
 	}
 
@@ -65,15 +63,14 @@ class ShippingAddr extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'user_id' => 'User',
-			'title' => 'Title',
+			'cart_id' => 'Cart',
+			'sex' => 'Sex',
+			'person_name' => 'Person Name',
+			'shipping_addr_id' => 'Shipping Addr',
 			'address' => 'Address',
 			'city' => 'City',
-			'state' => 'State',
-			'country' => 'Country',
 			'zip_code' => 'Zip Code',
 			'phone' => 'Phone',
-			'primary' => 'Primary',
 		);
 	}
 
@@ -96,15 +93,14 @@ class ShippingAddr extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('user_id',$this->user_id);
-		$criteria->compare('title',$this->title,true);
+		$criteria->compare('cart_id',$this->cart_id);
+		$criteria->compare('sex',$this->sex);
+		$criteria->compare('person_name',$this->person_name,true);
+		$criteria->compare('shipping_addr_id',$this->shipping_addr_id);
 		$criteria->compare('address',$this->address,true);
 		$criteria->compare('city',$this->city,true);
-		$criteria->compare('state',$this->state,true);
-		$criteria->compare('country',$this->country,true);
 		$criteria->compare('zip_code',$this->zip_code,true);
 		$criteria->compare('phone',$this->phone,true);
-		$criteria->compare('primary',$this->primary);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -115,17 +111,10 @@ class ShippingAddr extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return ShippingAddr the static model class
+	 * @return ShipmentTo the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
-	}
-
-
-	public function getPrimaryShippingAddr($uid=null){
-		if(!$uid) $uid = Yii::app()->user->getID();
-
-		return self::findByAttributes(array('user_id'=>Yii::app()->user->getID(),'primary'=>1));
 	}
 }

@@ -43,6 +43,12 @@
                   <div class="span9 content-wrapper clearfix">
                   
                     <h6>Shipping Address</h6><br />
+                    <?php
+                    $form = $this->beginWidget('CActiveForm',array(
+                      'id'=>'shippingAddrForm',
+                      'enableAjaxValidation'=>false,
+                    ));
+                    ?>
                     <div class="full-col">
                        <ul class="rr">
                           <li>
@@ -50,7 +56,8 @@
                               <span class="red">*</span> First Name:
                             </div>
                             <label>
-                              <input type="text" name="first" placeholder="First Name.." value="Eka Chandra"/>
+                              <!-- <input type="text" name="first" placeholder="First Name.." value="Eka Chandra"/> -->
+                              <?php echo $form->textField($shipmentTo,'person_name'); ?>
                             </label>
                           </li>
                           <li>
@@ -132,7 +139,10 @@
                           </li>
                         </ul>
                     
-                    </div>  
+                    </div>
+                    <?php
+                    $this->endWIdget();
+                    ?>
                   </div>                      
                 </div>
               </li>

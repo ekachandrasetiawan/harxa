@@ -40,6 +40,23 @@ class UsrController extends Controller
 		$this->render('updateShippingAddr',array('model'=>$model));
 	}
 
+	public function actionSetAsPrimaryShippingAddr($id)
+	{
+		$model = ShippingAddr::model()->findByPk($id);
+		if(!$model)throw new CHttpException(404,'Not Found');
+
+		$oldPrimary = ShippingAddr::model()->findByAttributes(array('user_id'=>Yii::app()->user->getID(),'primary'=>1));
+		if($oldPrimary && $model){
+			$oldPrimary->primary = 0;
+			$oldPrimary->save();
+		}
+		if($model){
+			$model->primary = 1;
+			$model->save();
+		}
+		$this->redirect(Yii::app()->user->returnUrl);
+	}
+
 
 	public function actionGetCity($term){
 

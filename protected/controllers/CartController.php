@@ -53,7 +53,10 @@ class CartController extends Controller
     }
     
     public function actionShippingAddress(){
-        $this->render('shippingaddress');
+    	$model = ShippingAddr::model()->getPrimaryShippingAddr();
+    	$shipmentTo = new ShipmentTo;
+
+        $this->render('shippingaddress',array('model'=>$model,'shipmentTo'=>$shipmentTo));
     }
     
     public function actionShippingMethod(){

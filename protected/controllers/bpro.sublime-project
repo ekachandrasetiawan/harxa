@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"name":"Super",
+			"follow_symlinks": true,
+			"path": "C:\\xampp\\htdocs\\super"
+		}
+	],
+	"settings":
+	{
+		"tab_size": 4
+	}
+}

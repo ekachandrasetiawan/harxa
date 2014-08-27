@@ -72,6 +72,7 @@
 										<td>
 											<a href="<?php echo $this->createUrl('usr/updateShippingAddr',array('id'=>$data->id)); ?>">Edit</a>
 											<a href="<?php echo $this->createUrl('usr/deleteShippingAddr',array('id'=>$data->id)); ?>">Delete</a>
+											<a href="<?php echo $this->createUrl('usr/setAsPrimaryShippingAddr',array('id'=>$data->id)); ?>">Set As Primary</a>
 										</td>
 									</tr>
 									<?php

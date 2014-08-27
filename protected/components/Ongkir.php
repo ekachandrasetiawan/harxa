@@ -10,34 +10,15 @@ class Ongkir{
 
 		$result = $rest->post('city/list', array(
 			'query' 	=> $query, 
-			'type' 		=> 'origin',
+			'type' 		=> 'destination',
 			'courier' 	=> 'jne',
 			'API-Key' 	=> '29bb022b349e38200fef60cebc10d0bb',
 			'format'	=> 'json',
-			));
+			)
+		);
 
 		try
 		{
-			// $status = $result['status'];
-
-	        // Handling the data
-			/*if ($status->code == 0)
-			{
-				$cities = $result['cities'];
-
-				foreach ($cities->item as $item)
-				{
-					// echo 'Kota: ' . $item . '<br />';
-					// $ctys[] = $item;
-				}
-				var_dump($cities);
-				// echo CJSON::encode($ctys);
-			}
-			else
-			{
-				echo 'Tidak ditemukan kota yang diawali "'.$query.'"';	
-			}*/
-
 			$status = $result->status;
 			if($status->code==0){
 				return CJSON::encode($result->cities);
