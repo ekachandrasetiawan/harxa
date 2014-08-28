@@ -92,9 +92,104 @@
                     </div>
                     <?php
                   else:
-                    echo 'Youre Loged In As '.Yii::app()->user->getName().'<br/>';
-                    echo '<a href="'.$this->createUrl('cart/selectSchedule').'">Next</a>';
-                  endif;
+                    //echo 'Youre Loged In As '.Yii::app()->user->getName().'<br/>';
+                    
+                    // Sudah Melakukan Login 
+                    ?>
+                        <div class="span9 checkout-list">
+                            <ol class="rr">
+                            <form action="#" method="post" id="form-2">
+                            <!-- ----------- Your Personal Account ------------------- -->
+                              <li class="current">
+                                <h6>Your Personal information</h6>
+                                <div class="row">
+                                  <div class="span9 content-wrapper clearfix">
+                                    <div class="full-col">
+                                       <ul class="rr">
+                                        <li>
+                                            <div class="span2"> Title:
+                                            </div>
+                                            <label>
+                                             <input type="radio" name="newsletter" value="1"> Mr.
+                                              <input type="radio" name="newsletter" value="2">  Ms.
+                                                 <input type="radio" name="newsletter" value="3">   Miss.
+                                            </label>
+                                          </li>
+                                          <li>
+                                            <div class="span2">
+                                              <span class="red">*</span> First Name:
+                                            </div>
+                                            <label>
+                                              <input type="text" name="first" placeholder="First Name.."/>
+                                            </label>
+                                          </li>
+                                          <li>
+                                            <div class="span2">
+                                              <span class="red">*</span> Last Name:
+                                            </div>
+                                            <label>
+                                              <input type="text" name="last" placeholder="Last Name.."/>
+                                            </label>
+                                          </li>
+                
+                                          <li>
+                                            <div class="span2">
+                                              <span class="red">*</span> E-Mail:
+                                            </div>
+                                            <label>
+                                              <input type="text" name="last" placeholder="E-Mail.."/>
+                                            </label>
+                                          </li>
+                
+                                            <li>
+                                            <div class="span2">
+                                              <span class="red">*</span> Telephone:
+                                            </div>
+                                            <label>
+                                              <input type="text" name="last" placeholder="Telephone.."/>
+                                            </label>
+                                          </li>
+                                           <li>
+                                            <div class="span2">
+                                              <span class="red">*</span> Password:
+                                            </div>
+                                            <label>
+                                              <input type="password" name="first" placeholder="Password.."/><br/>
+                                            </label>
+                                              <div class="span2">
+                                             
+                                              </div>
+                                               <label>
+                                                 (5 characters min.)
+                                               </label>
+                                              
+                                          </li>
+                                          <li>
+                                               <div class="span2">
+                                             
+                                              </div>
+                                               
+                                          </li>
+                                        </ul>
+                                    
+                                    </div>  
+                                  </div>                      
+                                </div>
+                              </li>
+                              <!-- ---------- Newslatter--------------- -->
+                
+                                <li class="current">
+                                <p>
+                                <a href="<?php echo $this->createUrl('cart/selectSchedule'); ?>" class="btn secondary" onclick="document.forms['form-2'].submit()">
+                                <span class="gradient">NEXT</span>
+                               </a>
+                
+                              </li>
+                              </form>
+                            </ol>
+                          </div>
+                    <?php
+                    endif;
                   ?>
                 </div>
               </li>
@@ -140,6 +235,5 @@
               </li>
             </ol>
           </div>
-        
         </div>
       </div> 

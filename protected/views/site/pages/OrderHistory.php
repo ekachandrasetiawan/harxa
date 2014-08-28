@@ -16,7 +16,6 @@
 </div>
       <div role="main" class="container checkout">
         <div class="row">
-        
           <div class="span3 progress">
             <h3>Account</h3>
             <ul class="rr">

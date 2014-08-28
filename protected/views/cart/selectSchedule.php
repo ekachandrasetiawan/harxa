@@ -24,7 +24,7 @@
 
         <div class="span9 checkout-list">
             <h3>Checkout</h3>
-            <form method="POST">
+           
                 <ol class="rr">
                     <li>
                         <h6>Checkout method</h6>
@@ -66,11 +66,8 @@
 </th> -->
 </tr>
 
-
+<form method="POST" action="<?php echo Yii::app()->createUrl('cart/createschedule'); ?>">
 <?php
-
-
-
 
 for($i=0; $i<($diff-1); $i++){ ?>
 <tr>
@@ -99,19 +96,9 @@ for($i=0; $i<($diff-1); $i++){ ?>
 }
 
 ?>
-
-
-<!-- <td>
-  <input type="radio" name="schedule" value="2"/> Available
-</td>
-
-<td>
-  <input type="radio" name="schedule" value="3"/> Available
-</td> -->
 </tr>
 <?php 
 }
-
 
 ?>
 
@@ -120,6 +107,7 @@ for($i=0; $i<($diff-1); $i++){ ?>
 <a id="btnContinue" class="btn secondary">
     <span class="gradient">Continue</span>
 </a>
+</form>
 <?php 
     Yii::app()->clientScript->registerScript('submitSchedule','
         jQuery(\'#btnContinue\').click(function(){
