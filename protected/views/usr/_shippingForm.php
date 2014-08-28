@@ -57,11 +57,14 @@
         
     </li> -->
     <li>
-		<!-- <div class='row'> -->
 			<?php echo $form->labelEx($model,'zip_code'); ?>
 			<?php echo $form->textField($model,'zip_code',array('placeholder'=>'Zip Code')); ?>
 			<?php echo $form->error($model,'zip_code'); ?>
-		<!-- </div> -->
+	</li>
+	<li>
+			<?php echo $form->labelEx($model,'phone'); ?>
+			<?php echo $form->textField($model,'phone',array('placeholder'=>'Phone')); ?>
+			<?php echo $form->error($model,'phone'); ?>
 	</li>
 	<li>
 		<?php echo CHtml::submitButton('Save') ?>

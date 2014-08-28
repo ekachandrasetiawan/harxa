@@ -53,14 +53,53 @@ class CartController extends Controller
     }
     
     public function actionShippingAddress(){
+    	$cart = Cart::model()->checkCartBySession();
+    	if(!$cart){
+			throw new ChttpException(404,'You must shipping first');
+		}
+
     	$model = ShippingAddr::model()->getPrimaryShippingAddr();
-    	$shipmentTo = new ShipmentTo;
+    	$shipmentTo = ShipmentTo::model()->findByAttributes(array('cart_id'=>$cart->id));
+    	if(!$shipmentTo)
+    		$shipmentTo = new ShipmentTo;
+		
+    	
+    	if(isset($_POST['ShipmentTo'])){
+    		
+
+    		$shipmentTo->attributes = $_POST['ShipmentTo'];
+    		$shipmentTo->cart_id = $cart->id;
+    		if($shipmentTo->save()){
+    			$this->redirect(array('shippingMethod'));
+    		}
+    	}
 
         $this->render('shippingaddress',array('model'=>$model,'shipmentTo'=>$shipmentTo));
     }
+
+   	public function actionSetShipmentTo(){
+   		if(!isset($_POST['id'])){
+   			throw new CHttpException(404,'Id Not Posted');
+   		}
+
+   		$id = (int) $_POST['id'];
+
+   		$addr = ShippingAddr::model()->findByPk($id);
+   		if(!$addr) throw new CHttpException(404,'Shipping Address Not Found');
+   		header('Content-type:application/json');
+   		echo CJSON::encode($addr->attributes);
+   	}
     
+
+
     public function actionShippingMethod(){
-       $this->render('shippingmethod'); 
+    	$cart = Cart::model()->checkCartBySession();
+    	$sh = new Ongkir;
+    	$costs = $sh->getCost($cart->ShipmentTo->city);
+    	/*echo '<pre>';
+    	var_dump($costs);
+    	echo '</pre>';*/
+    	$this->render('shippingmethod',array('cart'=>$cart,'costs'=>$costs)); 
     }
     
     public function actionPaymentMethod(){

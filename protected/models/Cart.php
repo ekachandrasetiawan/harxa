@@ -57,6 +57,7 @@ class Cart extends CActiveRecord
 		return array(
 			'user' => array(self::BELONGS_TO, 'Users', 'user_id'),
 			'cartDetails' => array(self::HAS_MANY, 'CartDetail', 'cart_id'),
+			'ShipmentTo'=>array(self::HAS_ONE,'ShipmentTo','cart_id'),
 		);
 	}
 

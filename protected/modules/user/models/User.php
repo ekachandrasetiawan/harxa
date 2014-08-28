@@ -81,6 +81,7 @@ class User extends CActiveRecord
         if (!isset($relations['profile']))
             $relations['profile'] = array(self::HAS_ONE, 'Profile', 'user_id');
        	$relations['shippingAddresses'] = array(self::HAS_MANY,'ShippingAddr','user_id');
+       	$relations['primaryShipAddr'] = array(self::HAS_ONE,'ShippingAddr','user_id','condition'=>'primary=1'),
         return $relations;
 	}
 

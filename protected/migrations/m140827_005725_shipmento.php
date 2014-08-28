@@ -32,7 +32,7 @@ class m140827_005725_shipmento extends CDbMigration
 	{
 	}
 
-	public function safeDown()
+public function safeDown()
 	{
 	}
 	*/
