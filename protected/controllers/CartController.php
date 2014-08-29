@@ -55,8 +55,8 @@ class CartController extends Controller
     public function actionShippingAddress(){
     	$cart = Cart::model()->checkCartBySession();
     	if(!$cart){
-			throw new ChttpException(404,'You must shipping first');
-		}
+			 throw new CHttpException(404,'You must shipping first');
+		  }
 
     	$model = ShippingAddr::model()->getPrimaryShippingAddr();
     	$shipmentTo = ShipmentTo::model()->findByAttributes(array('cart_id'=>$cart->id));
@@ -96,10 +96,24 @@ class CartController extends Controller
     	$cart = Cart::model()->checkCartBySession();
     	$sh = new Ongkir;
     	$costs = $sh->getCost($cart->ShipmentTo->city);
-    	/*echo '<pre>';
-    	var_dump($costs);
-    	echo '</pre>';*/
-    	$this->render('shippingmethod',array('cart'=>$cart,'costs'=>$costs)); 
+        $method = ShippingMethod::model()->findByAttributes(array('cart_id'=>$cart->id));
+        if(!$method){
+            $method = new ShippingMethod;
+        }
+        
+        if(isset($_POST['ShippingMethod']))
+        {
+            // $method->attributes = $_POST['ShippingMethod'];
+            $mm = CJSON::decode($_POST['ShippingMethod']['service']);
+            $method->service = $mm['service'];
+            $method->price = $mm['value'];
+            $method->cart_id = $cart->id;
+            $method->cart_id = Yii::app()->user->getID();
+            if($method->save()){
+                $this->redirect(array('paymentMethod'));
+            }
+        }
+    	$this->render('shippingmethod',array('cart'=>$cart,'costs'=>$costs,'method'=>$method));
     }
     
     public function actionPaymentMethod(){
