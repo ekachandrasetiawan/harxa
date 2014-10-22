@@ -1,4 +1,5 @@
-<div class="container">
+<div class="content bgwhite">
+    <div class="container">
 <div class="container breadcrumb-wrapper">
 <div class="row">
   <div class="span12 breadcrumb">
@@ -33,5 +34,6 @@
             <?php endforeach; ?>
         </ul>
     </div>
+</div>
 </div>
 </div>

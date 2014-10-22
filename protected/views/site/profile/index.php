@@ -1,4 +1,5 @@
-    <div class="container">
+<div class="content bgwhite">
+       <div class="container bgwhite">
     <div class="container breadcrumb-wrapper">
         <div class="row">
           <div class="span12 breadcrumb">
@@ -20,3 +21,4 @@
         ?>
 		
 	</div>
+</div>

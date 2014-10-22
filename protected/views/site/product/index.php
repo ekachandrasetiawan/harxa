@@ -1,4 +1,6 @@
-<div class="container breadcrumb-wrapper">
+<div class="content bgwhite">
+
+<div class="container breadcrumb-wrapper bgwhite">
 <div class="row">
   <div class="span12 breadcrumb">
     <ul class="rr">
@@ -14,7 +16,7 @@
   </div>
 </div>
 </div>
-      <div role="main" class="container products grid">        
+      <div role="main" class="container products grid bgwhite">        
         <div class="row">
         
           <div class="span12">
@@ -120,3 +122,4 @@
         </div>
       </div>
       
+</div>
