@@ -51,15 +51,29 @@
 
                             <h6>Shipping Method</h6><br />
                             Please Select Shipping Method<br /><br />
+                            JAKARTA to <?php echo CHtml::encode(ucwords($cart->ShipmentTo->city)); ?>
+                            <?php
+                            $form = $this->beginWidget('CActiveForm',array(
+                                'id'=>'shippingMethodForm',
+                                'enableAjaxValidation'=>false,
+                            ));
+                            ?>
                             <div class="full-col">
                                 <ul class="rr">
-                                    <?php foreach($costs->price as $cost): ?>
+                                    <?php foreach($costs->price as $idx=>$cost): ?>
                                     <li class="span8">
                                         <div class="block bold black"> JNE <?php  echo CHtml::encode($cost->service); ?>:
                                         </div>
                                         <div class="span5">
-                                            <input type="radio" id="radio1" name="shippingmethod" value="1"/>
-                                            <label for="radio1" style="margin-left: -50px;">O</label>
+                                            <!-- <input type="radio" id="radio1" name="shippingmethod" value="1"/> -->
+                                            <!-- <label for="radio1" style="margin-left: -50px;">O</label> -->
+                                            
+                                            <?php 
+                                                // echo $form->radioButtonList($method,'service',array()) 
+                                                // var_dump($cost);
+                                                echo CHtml::radioButton(CHtml::activeName($method,'service'),false,array('id'=>'radio'.$idx,'value'=>CJSON::encode(array('service'=>$cost->service_code,'value'=>$cost->value))));
+                                            ?>
+                                            <label for="radio<?php echo $idx; ?>" style="margin-left: -50px;">O</label>
                                             <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>img/jne.png" />
 
                                             Reguler Shipping Rate By TIKI JNE
@@ -77,7 +91,7 @@
                                         <div class="span5">
                                             <input type="radio" id="radio2" name="shippingmethod" value="2"/>
                                             <label for="radio2" style="margin-left: -50px;">O</label>
-                                            <img src="<?php echo yii::app()->theme->baseUrl.'/assets/' ?>img/jne.png" />
+                                            <img src="<?php //echo yii::app()->theme->baseUrl.'/assets/' ?>img/jne.png" />
                                     
                                             Yakin Esok Sampai Shipping Rate By TIKI JNE
                                         </div>
@@ -86,12 +100,15 @@
                                         </div>
                                     </li> -->
                                     <li>
-                                        <a onclick="document.forms['form-1'].submit()" class="btn secondary" href="#">
+                                        <a onclick="jQuery('form#shippingMethodForm').submit();" class="btn secondary" href="#">
                                             <span class="gradient">Continue</span>
                                         </a>
                                     </li>
                                 </ul>
                             </div>
+                            <?php
+                            $this->endWidget();
+                            ?>
                         </div>
                     </div>
                 </li>
