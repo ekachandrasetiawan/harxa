@@ -4,7 +4,7 @@ class m140822_130812_alter_cart_detail extends CDbMigration
 {
 	public function safeUp()
 	{
-		$this->addColumn('tbl_cart_detail','size','string');
+		$this->addColumn('tbl_cart_detail','size','varchar(255)');
 	}
 
 	public function down()

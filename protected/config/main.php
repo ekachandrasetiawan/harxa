@@ -133,22 +133,22 @@ return array(
 		
 		// uncomment the following to use a MySQL database
 		
-		/*'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=trunk',
+		'db'=>array(
+			'connectionString' => 'mysql:host=localhost;dbname=harxa',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
 			'charset' => 'utf8',
 			'tablePrefix' => 'tbl_',
-		),*/
-		'db'=>array(
+		),
+		/*'db'=>array(
 			'connectionString' => 'pgsql:host=localhost;port=5432;dbname=trunk',
 			'emulatePrepare' => true,
 			'username' => 'trunk_usr',
 			'password' => 'harxa',
 			'charset' => 'utf8',
 			'tablePrefix'=>'tbl_',
-		),
+		),*/
 		
 		'errorHandler'=>array(
 			// use 'site/error' action to display errors
