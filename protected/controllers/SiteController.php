@@ -131,11 +131,12 @@ class SiteController extends Controller
 			}
 			// display the login form
 			$this->render('login',array('model'=>$model));
-		} else
+		} else{
 			$this->redirect(Yii::app()->user->returnUrl);
+		}
 
 		// display the login form
-		$this->render('login',array('model'=>$model));
+		// $this->render('login',array('model'=>$model));
 	}
 
 	/**
