@@ -104,8 +104,8 @@ for($i=0; $i<($diff-1); $i++){ ?>
 
 </table>
 
-<a id="btnContinue" class="btn secondary">
-    <span class="gradient">Continue</span>
+<a href="<?php echo $this->createUrl('cart/selectSchedule'); ?>" class="btn secondary" onclick="document.forms['form-2'].submit()">
+                                    <span class="gradient">Continue</span>
 </a>
 </form>
 <?php 

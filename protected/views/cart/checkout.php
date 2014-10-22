@@ -110,9 +110,14 @@
                                             <div class="span2"> Title:
                                             </div>
                                             <label>
-                                             <input type="radio" name="newsletter" value="1"> Mr.
-                                              <input type="radio" name="newsletter" value="2">  Ms.
-                                                 <input type="radio" name="newsletter" value="3">   Miss.
+                                             <input id="radio1" type="radio" name="newsletter" value="1"/> 
+                                             <label for="radio1">Mr.</label>
+                                             <input type="radio" name="newsletter" value="2"/>
+                                             <label for="radio2">Ms.</label>
+                                              
+                                             <input type="radio" name="newsletter" value="3"/>
+                                            <label for="radio3">Miss.</label>
+                                             
                                             </label>
                                           </li>
                                           <li>

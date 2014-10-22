@@ -113,7 +113,6 @@
           <div class="span3 logo-wrapper">
             <a href="index.php" class="logo">
               <span class="icon ir">HARXA FASHION STYLELIST</span>
-              <h1>HARXA</h1>
             </a>
           </div>
           <div class="span5 collections">
@@ -140,11 +139,12 @@
                </div>
           </div>
         </div>  
-
-        <div class="row main-menu-wrapper">
+      </header>
+    <div class="content" style="background-color: black;">
+        <div class="row main-menu-wrapper container">
           
           <div class="row">
-            <ul class="main-menu clearfix" id="main-menu">
+            <ul class="main-menu clearfix" id="main-menu" style="margin-bottom: 20px; padding-top: 12px;">
               <li style="border-left: 1px solid #d6d6d6;"><a href="index.php" class="current">Home</a></li>
               <li><a href="<?php echo Yii::app()->createUrl('site/profile'); ?>">About Us</a></li>
               <li><a href="<?php echo Yii::app()->createUrl('site/product'); ?>">Products</a></li>
@@ -158,8 +158,7 @@
           </div>
           -->
         </div>
-      </header>
-    <div style="border-top: 1px solid #ccc; padding-bottom: 5px;"></div>
+</div>
       <?php
         echo $content;
       ?>
