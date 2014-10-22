@@ -4,8 +4,7 @@ class m140822_130525_alter_cart extends CDbMigration
 {
 	public function safeUp()
 	{
-		$this->alterColumn('tbl_cart','pass_scheduled','string');
-		$this->dropColumn('tbl_cart','product_list_id');
+		$this->alterColumn('tbl_cart','pass_scheduled','varchar(255)');
 	}
 
 	public function down()
